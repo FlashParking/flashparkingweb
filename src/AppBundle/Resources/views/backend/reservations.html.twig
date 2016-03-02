@@ -1,0 +1,100 @@
+{% extends '@App/backend/base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="#">Réservations</a>
+                    </li>
+                    <li>En attente</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>
+                    Réservations (en attente)
+                </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Nom</th>
+                                    <th>Lieux</th>
+                                    <th>Durée</th>
+                                    <th>Actions</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr>
+                                    <th scope="row">01/01/2000</th>
+                                    <td>Mark Dacascos</td>
+                                    <td>48 rue Camille Desmoulins 92000 Issy-les-Moulineaux</td>
+                                    <td>1 semaine</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">Voir</button>
+                                        <button type="button" class="btn btn-danger">Supprimer</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">01/01/2000</th>
+                                    <td>Mark Dacascos</td>
+                                    <td>48 rue Camille Desmoulins 92000 Issy-les-Moulineaux</td>
+                                    <td>1 semaine</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">Voir</button>
+                                        <button type="button" class="btn btn-danger">Supprimer</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <th scope="row">01/01/2000</th>
+                                    <td>Mark Dacascos</td>
+                                    <td>48 rue Camille Desmoulins 92000 Issy-les-Moulineaux</td>
+                                    <td>1 semaine</td>
+                                    <td>
+                                        <button type="button" class="btn btn-success">Voir</button>
+                                        <button type="button" class="btn btn-danger">Supprimer</button>
+                                    </td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <nav class="text-center">
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

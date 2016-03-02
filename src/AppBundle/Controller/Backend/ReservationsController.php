@@ -1,6 +1,6 @@
 <?php
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Backend;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -8,12 +8,11 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class ReservationsController extends Controller
 {
     /**
-     * @Route("/reservations")
+     * @Route("/backend/reservations")
      */
-    public function ReservationsAction()
+    public function showAction()
     {
-        // replace this example code with whatever you need
-        return $this->render('@App/front/reservations.html.twig', array(
+        return $this->render('@App/backend/reservations.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'nav_active' => 'reservations',
         ));

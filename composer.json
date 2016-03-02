@@ -1,5 +1,5 @@
 {
-    "name": "clement banse/flashparking",
+    "name": "nani/flashparkingweb",
     "license": "proprietary",
     "type": "project",
     "autoload": {
@@ -45,7 +45,10 @@
         ]
     },
     "config": {
-        "bin-dir": "bin"
+        "bin-dir": "bin",
+        "platform": {
+            "php": "5.3.9"
+        }
     },
     "extra": {
         "symfony-app-dir": "app",

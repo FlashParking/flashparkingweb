@@ -13,7 +13,7 @@ class OffresController extends Controller
     public function contactAction()
     {
         // replace this example code with whatever you need
-        return $this->render('@App/offres/offres.html.twig', array(
+        return $this->render('@App/front/offres.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'nav_active' => 'offres',
         ));

@@ -13,7 +13,7 @@ class CustomerRegisterController extends Controller
     public function CustomerRegisterAction()
     {
         // replace this example code with whatever you need
-        return $this->render('@App/customerRegister/customer-register.html.twig', array(
+        return $this->render('@App/front/customer-register.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'nav_active' => 'connexion',
         ));

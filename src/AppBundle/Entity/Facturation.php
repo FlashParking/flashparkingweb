@@ -83,4 +83,52 @@ class Facturation
     {
         return $this->total;
     }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Facturation
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+
+    /**
+     * Set paiement
+     *
+     * @param \AppBundle\Entity\Paiement $paiement
+     *
+     * @return Facturation
+     */
+    public function setPaiement(\AppBundle\Entity\Paiement $paiement = null)
+    {
+        $this->paiement = $paiement;
+
+        return $this;
+    }
+
+    /**
+     * Get paiement
+     *
+     * @return \AppBundle\Entity\Paiement
+     */
+    public function getPaiement()
+    {
+        return $this->paiement;
+    }
 }

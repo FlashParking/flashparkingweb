@@ -83,4 +83,52 @@ class Forfait
     {
         return $this->description;
     }
+
+    /**
+     * Set tarif
+     *
+     * @param \AppBundle\Entity\Tarif $tarif
+     *
+     * @return Forfait
+     */
+    public function setTarif(\AppBundle\Entity\Tarif $tarif = null)
+    {
+        $this->tarif = $tarif;
+
+        return $this;
+    }
+
+    /**
+     * Get tarif
+     *
+     * @return \AppBundle\Entity\Tarif
+     */
+    public function getTarif()
+    {
+        return $this->tarif;
+    }
+
+    /**
+     * Set promotion
+     *
+     * @param \AppBundle\Entity\Promotion $promotion
+     *
+     * @return Forfait
+     */
+    public function setPromotion(\AppBundle\Entity\Promotion $promotion = null)
+    {
+        $this->promotion = $promotion;
+
+        return $this;
+    }
+
+    /**
+     * Get promotion
+     *
+     * @return \AppBundle\Entity\Promotion
+     */
+    public function getPromotion()
+    {
+        return $this->promotion;
+    }
 }

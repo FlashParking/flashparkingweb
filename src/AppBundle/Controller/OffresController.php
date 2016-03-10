@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class OffresController extends Controller
 {
     /**
-     * @Route("/offres")
+     * @Route("/offres", name="offres")
      */
     public function contactAction()
     {

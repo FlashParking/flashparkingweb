@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormError;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Security\Http\Authentication;
 
 class CustomerRegisterController extends Controller
@@ -46,6 +47,9 @@ class CustomerRegisterController extends Controller
     //            }
                 if(crypt($form->getData()->getPassword(), $userToLog->getPassword()) == $userToLog->getPassword()){
                     //route a definir
+                    $session = new Session();
+                    $session->start();
+                    $session->set('user',$userToLog);
                     return $this->redirectToRoute('contact');
                 }else{
                     $form->get('password')->addError(new FormError('Le mot de passe est incorrect.'));

@@ -3,6 +3,7 @@
 namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
+use Symfony\Component\Form\Extension\Core\Type\BirthdayType ;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -26,8 +27,13 @@ class CustomerRegisterController extends Controller
             ->add('password', PasswordType::class ,array('label' => 'Mot de passe','required' => true,'attr' => array('class'=>'form-control')))
             ->add('connect', SubmitType::class, array('label' => 'Se Connecter','attr' => array('class'=>'btn btn-template-main')))
             ->getForm();
-        $register = $this->createFormBuilder($user)
+        $register = $this->createFormBuilder()
             ->add('nom', TextType::class,array('label' => 'Nom','required' => true,'attr' => array('class'=>'form-control')))
+            ->add('prenom', TextType::class,array('label' => 'Prénom','required' => true,'attr' => array('class'=>'form-control')))
+            ->add('login', TextType::class,array('label' => 'Choose a login','required' => true,'attr' => array('class'=>'form-control')))
+            ->add('dateNaissance', BirthdayType::class,array('label' => 'Date de naissance','required' => true))
+            ->add('password', PasswordType::class,array('label' => 'Mot de passe','required' => true,'attr' => array('class'=>'form-control')))
+            ->add('password2', PasswordType::class,array('label' => 'Retapez votre mot de passe','required' => true,'attr' => array('class'=>'form-control')))
             ->add('email', EmailType::class ,array('label' => 'Email','required' => true,'attr' => array('class'=>'form-control')))
             ->add('regist', SubmitType::class, array('label' => 'S\'enregistrer','attr' => array('class'=>'btn btn-template-main')))
             ->getForm();

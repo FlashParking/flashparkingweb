@@ -10,4 +10,41 @@ namespace AppBundle\Repository;
  */
 class RequeteRepository extends \Doctrine\ORM\EntityRepository
 {
+    function getPlaintes() {
+        $results = array();
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+        'SELECT p
+        FROM AppBundle:Requete p');
+
+        $plaintes = $query->getResult();
+        
+        foreach ($plaintes as $val) {
+        $id_plainte = $val->getId();
+        $date = $val->getDate()->format('d/m/Y');
+        $sujet = $val->getSujet();
+        $message = $val->getMessage();
+        $user_id = $val->getUser();
+        $query = $em->createQuery(
+        'SELECT u
+        FROM AppBundle:User u
+        WHERE u.id = :id')->setParameter('id', $user_id);
+        $user = $query->getResult();
+        $nom = $user[0]->getNom() . ' ' . $user[0]->getPrenom();
+        $results[] = array("id" => $id_plainte, "date" => $date, "object" => $sujet, "message" => $message, "user" => $nom); 
+        }
+        
+        return $results;
+    }
+    
+    function deletePlaintes($id_message) {
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+        'SELECT p
+        FROM AppBundle:Requete p
+        WHERE p.id = :id')->setParameter('id', $id_message);
+        $line_delete = $query->getResult();
+        $em->remove($line_delete);
+        $em->flush();
+    }
 }

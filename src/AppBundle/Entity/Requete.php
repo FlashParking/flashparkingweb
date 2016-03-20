@@ -32,6 +32,11 @@ class Requete
      */
     private $user;
 
+    /**
+    * @var Date
+    * @ORM\Column(name="date", type="date")
+    */
+    private $date;
 
     /**
      * Get id
@@ -137,5 +142,28 @@ class Requete
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     * @return Requete
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime 
+     */
+    public function getDate()
+    {
+        return $this->date;
     }
 }

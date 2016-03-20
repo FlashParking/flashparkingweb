@@ -141,4 +141,52 @@ class Reservation
     {
         return $this->heureFin;
     }
+
+    /**
+     * Set parking
+     *
+     * @param \AppBundle\Entity\Parking $parking
+     *
+     * @return Reservation
+     */
+    public function setParking(\AppBundle\Entity\Parking $parking = null)
+    {
+        $this->parking = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Get parking
+     *
+     * @return \AppBundle\Entity\Parking
+     */
+    public function getParking()
+    {
+        return $this->parking;
+    }
+
+    /**
+     * Set tarif
+     *
+     * @param \AppBundle\Entity\Tarif $tarif
+     *
+     * @return Reservation
+     */
+    public function setTarif(\AppBundle\Entity\Tarif $tarif = null)
+    {
+        $this->tarif = $tarif;
+
+        return $this;
+    }
+
+    /**
+     * Get tarif
+     *
+     * @return \AppBundle\Entity\Tarif
+     */
+    public function getTarif()
+    {
+        return $this->tarif;
+    }
 }

@@ -52,7 +52,7 @@ _________________________________________________________ -->
        <div class="nav-vertical">
 
         <ul class="menu-vertical">
-            <img src="{{ asset('images/logo-parking-2.jpg') }}" style="border: 8px solid #fff;" class="img-responsive logo" alt="#">
+            <img src="{{ asset('images/smallLogoParking.png') }}" style="border: 8px solid #fff;" class="img-responsive logo" alt="#">
             <li class="menu-ele"><a href="#home">Tableau de bord</a></li>
             <li class="menu-ele"><a href="#news">Gestion des parkings</a></li>
             <li class="menu-ele"><a href="#contact">Pages</a></li>
@@ -75,10 +75,9 @@ _________________________________________________________ -->
         </div>-->
 
         <div class="area"></div><nav class="main-menu">
-            <img src="{{ asset('images/logo-parking-2.jpg') }}" style="border: 8px solid #fff;" class="img-responsive logo" alt="#">
             <ul>
                 <li class="menu-ele">
-                    <a href="#">
+                    <a {% if nav_active == 'dashboard' %} { class="dropdown active"} {% endif %} href="dashboard">
                         <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                             Tableau de bord
@@ -87,7 +86,7 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
-                    <a href="#">
+                    <a {% if nav_active == 'search' %} { class="dropdown active"} {% endif %} href="search">
                         <i class="fa fa-automobile fa-2x"></i>
                         <span class="nav-text">
                             Gestion des parkings
@@ -96,7 +95,7 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
-                    <a href="#">
+                    <a {% if nav_active == '' %} { class="dropdown active"} {% endif %}  href="#">
                         <i class="fa fa-file-text-o fa-2x"></i>
                         <span class="nav-text">
                             Pages
@@ -105,7 +104,7 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
-                    <a href="#">
+                    <a {% if nav_active == '' %} { class="dropdown active"} {% endif %}  href="#">
                         <i class="fa fa-user fa-2x"></i>
                         <span class="nav-text">
                             Comptes utilisateurs
@@ -113,7 +112,7 @@ _________________________________________________________ -->
                     </a>
                 </li>
                 <li class="menu-ele">
-                    <a href="#">
+                    <a {% if nav_active == 'reservations' %} { class="dropdown active"} {% endif %}  href="reservations">
                         <i class="fa fa-calendar fa-2x"></i>
                         <span class="nav-text">
                             Réservations
@@ -122,7 +121,7 @@ _________________________________________________________ -->
                 </li>
                 <li class="menu-ele active">
                     <div class="dropdown">
-                    <a class="active" href="#">
+                    <a href="#">
                         <i class="fa fa-envelope fa-2x"></i>
 
                         <span class="nav-text">
@@ -132,14 +131,14 @@ _________________________________________________________ -->
                         <div class="dropdown-background">
                             <div class="dropdown-content">
                                 <a href="#">Recrutement</a>
-                                <a href="#">Plaintes</a>
+                                <a {% if nav_active == 'dashboard' %} { class="dropdown active"} {% endif %}  href="plaintes">Plaintes</a>
                                 <a href="#">Contact</a>
                             </div>
                         </div>
                     </div>
-                                       </li>
-                                   </ul>
-                               </nav>
+               </li>
+           </ul>
+       </nav>
                                <!-- *** NAVBAR END *** -->
 
     </header>

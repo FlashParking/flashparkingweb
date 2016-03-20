@@ -13,7 +13,7 @@ class ReservationsController extends Controller
     public function ReservationsAction()
     {
         // replace this example code with whatever you need
-        return $this->render('@App/reservations/reservations.html.twig', array(
+        return $this->render('@App/front/reservations.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'nav_active' => 'reservations',
         ));

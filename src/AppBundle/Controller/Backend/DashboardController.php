@@ -14,14 +14,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 class DashboardController extends Controller
 {
     /**
-     * @Route("/dashboard")
+     * @Route("/backend/dashboard")
      */
     public function dashboardAction()
     {
         // replace this example code with whatever you need
-        return $this->render('@App/backend/dashboard/dashboard.html.twig', array(
+        return $this->render('@App/backend/dashboard.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-            'nav_active' => 'contact',
+            'nav_active' => 'dashboard',
         ));
     }
 }

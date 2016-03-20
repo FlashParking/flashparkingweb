@@ -1,0 +1,88 @@
+{% extends '@App/backend/base.html.twig' %}
+
+{% block body %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="#">Gestion des parkings</a>
+                    </li>
+                    <li>Recherche</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h3 class="bottom-bar">
+                    Gestion des parkings (Recherche)
+                </h3>
+                <hr>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <div class="search-div">
+                                    <input type="text" name="manage-search" id="manage-search"/><i class="fa fa-search" style="font-size:24px" ></i>
+                                    <button class="button-search">Rechercher</button>
+                                </div>
+                            </table>
+                        </div>
+                        <table>
+                        <tbody>
+                        <tr>
+                            <td>
+                                <img class="img-parking" src="{{  asset('images/fotolia_87357649.jpg')}}">
+                                <br>
+                                Parking Issy les Moulineaux <br>
+                                <button type="button" class="btn btn-success btn-gestion">Voir</button>
+                            </td>
+                            <td>
+                                <img class="img-parking" src="{{  asset('images/fotolia_87357649.jpg')}}">
+                                <br>
+                                Parking Issy les Moulineaux <br>
+                                <button type="button" class="btn btn-success btn-gestion">Voir</button>
+                            </td>
+                            <td>
+                                <img class="img-parking" src="{{  asset('images/fotolia_87357649.jpg')}}">
+                                <br>
+                                Parking Issy les Moulineaux <br>
+                                <button type="button" class="btn btn-success btn-gestion">Voir</button>
+                            </td>
+                        </tr>
+                        </tbody>
+                        </table>
+                        <nav class="text-center">
+
+                            <ul class="pagination">
+                                <li>
+                                    <a href="#" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </a>
+                                </li>
+                                <li><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#">3</a></li>
+                                <li><a href="#">4</a></li>
+                                <li><a href="#">5</a></li>
+                                <li>
+                                    <a href="#" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

@@ -11,7 +11,12 @@ class Reservation
      * @var int
      */
     private $id;
-
+    
+    /**
+    * @var int
+    */
+    private $user_id;
+    
     /**
      * @var \DateTime
      */
@@ -140,5 +145,77 @@ class Reservation
     public function getHeureFin()
     {
         return $this->heureFin;
+    }
+    
+      /**
+     * Set parking
+     *
+     * @param \int $parking
+     *
+     * @return Reservation
+     */
+    public function setParking(\AppBundle\Entity\Parking $parking = null)
+    {
+        $this->parking = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Get parking
+     *
+     * @return \int
+     */
+    public function getParking()
+    {
+        return $this->parking;
+    }
+    
+     /**
+     * Set tarif
+     *
+     * @param \int $tarif
+     *
+     * @return Reservation
+     */
+    public function setTarif(\AppBundle\Entity\Tarif $tarif = null)
+    {
+        $this->tarif = $tarif;
+
+        return $this;
+    }
+
+    /**
+     * Get tarif
+     *
+     * @return \int
+     */
+    public function getTarif()
+    {
+        return $this->tarif;
+    }
+    
+     /**
+     * Set user_id
+     *
+     * @param \int $user_id
+     *
+     * @return Reservation
+     */
+    public function setUser(\AppBundle\Entity\User $user_id = null)
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Get user_id
+     *
+     * @return \int
+     */
+    public function getUser()
+    {
+        return $this->user_id;
     }
 }

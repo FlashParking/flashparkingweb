@@ -10,4 +10,58 @@ namespace AppBundle\Repository;
  */
 class ReservationRepository extends \Doctrine\ORM\EntityRepository
 {
+    
+    function getReservations() {
+        
+        $results = array();
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+        'SELECT r
+        FROM AppBundle:Reservation r
+        ORDER BY r.id DESC');
+
+        $reservations = $query->getResult();
+        
+        foreach ($reservations as $val) {
+        $id_reservation  = $val->getId();
+        $date = $val->getHeureDebutInit()->format('d/m/Y');
+        $heure_debut = $val->getHeureDebut();
+        $heure_fin = $val->getHeureFin();
+        $id_lieu = $val->getParking();
+        $duree = date_diff($heure_debut, $heure_fin);
+        $duree = $duree->format('%H:%I h');
+        $user_id = $val->getUser();
+        $parking_id = $val->getParking();
+        $tarif_id = $val->getTarif();
+            
+        $query = $em->createQuery(
+        'SELECT u
+        FROM AppBundle:User u
+        WHERE u.id = :id')->setParameter('id', $user_id);
+        $user = $query->getResult();
+        $nom = $user[0]->getNom() . ' ' . $user[0]->getPrenom();
+            
+        $query = $em->createQuery(
+        'SELECT p
+        FROM AppBundle:Parking p
+        WHERE p.id = :id')->setParameter('id', $parking_id);
+        $parking = $query->getResult();
+        $adresse = $parking[0]->getAdresse() . ' ' . $parking[0]->getCodePostal() . ' ' . $parking[0]->getVille();
+        $lieu = $parking[0]->getNom() . ' ' . $adresse;
+        $coordonnees_parking = $parking[0]->getCoordonnees();
+        
+        $query = $em->createQuery(
+        'SELECT t
+        FROM AppBundle:Tarif t
+        WHERE t.id = :id')->setParameter('id', $tarif_id);
+        $tarif = $query->getResult();
+        $nom_tarif = $tarif[0]->getLibelle();
+        $montant_tarif = $tarif[0]->getPrix();
+        
+        $detail = 'Heure de début : ' . $heure_debut->format('H:i') . '\n' . 'Heure de fin : ' . $heure_fin->format('H:i') . '\n' . 'Tarif : ' . $nom_tarif . ' ' . $montant_tarif . '€'; 
+        $results[] = array("id" => $id_reservation, "date" => $date, "lieu" => $lieu, "duree" => $duree, "user" => $nom, "detail" => $detail); 
+        }
+        
+        return $results;
+    }
 }

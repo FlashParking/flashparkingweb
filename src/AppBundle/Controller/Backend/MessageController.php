@@ -27,13 +27,21 @@ class MessageController extends Controller
  
 
             //var_dump($data);
-           $em->getRepository('AppBundle:Requete')->deletePlaintes($request->request->get('test'));
+             $id = $request->request->get('test');
+          
+            
+           
             //$d = $text;
             //var_dump($_POST['test']);
-             return new Response("OK");
+            return new Response($id);
             //$em->getRepository('AppBundle:requete')->deletePlaintes($text);
         }else{
             //return new Response('Not Ajax');
+        }
+        
+        if(isset($id)) {
+            $data = $id;
+         $em->getRepository('AppBundle:Requete')->deletePlaintes($id);
         }
         // replace this example code with whatever you need
         return $this->render('@App/backend/plaintes.html.twig', array(

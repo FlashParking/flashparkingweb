@@ -15,7 +15,8 @@ class RequeteRepository extends \Doctrine\ORM\EntityRepository
         $em = $this->getEntityManager();
         $query = $em->createQuery(
         'SELECT p
-        FROM AppBundle:Requete p');
+        FROM AppBundle:Requete p
+        ORDER BY p.date DESC');
 
         $plaintes = $query->getResult();
         
@@ -39,12 +40,8 @@ class RequeteRepository extends \Doctrine\ORM\EntityRepository
     
     function deletePlaintes($id_message) {
         $em = $this->getEntityManager();
-        $query = $em->createQuery(
-        'SELECT p
-        FROM AppBundle:Requete p
-        WHERE p.id = :id')->setParameter('id', $id_message);
-        $line_delete = $query->getResult();
-        $em->remove($line_delete);
+        $line = $em->getRepository('AppBundle:Requete')->find($id_message);
+        $em->remove($line);
         $em->flush();
     }
 }

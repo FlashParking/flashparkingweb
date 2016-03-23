@@ -13,6 +13,10 @@ class ReservationsController extends Controller
      */
     public function showAction(Request $request)
     {
+        //Liste reservations
+        $em = $this->getDoctrine()->getEntityManager();
+        $liste_reservations = $em->getRepository('AppBundle:Reservation')->getReservations();
+        
         $user = $request->getSession()->get('user');
         if($user->getRoles()->getId()!=1){
             return $this->redirectToRoute('homepage');
@@ -20,7 +24,8 @@ class ReservationsController extends Controller
         return $this->render('@App/backend/reservations.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'nav_active' => 'reservations',
-            'user' => $user
+            'user' => $user,
+            'reservation' => $liste_reservations,
         ));
     }
 }

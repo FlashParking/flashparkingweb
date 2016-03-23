@@ -11,7 +11,12 @@ class Reservation
      * @var int
      */
     private $id;
-
+    
+    /**
+    * @var int
+    */
+    private $user_id;
+    
     /**
      * @var \DateTime
      */
@@ -165,7 +170,6 @@ class Reservation
     {
         return $this->parking;
     }
-
     /**
      * Set tarif
      *
@@ -182,11 +186,33 @@ class Reservation
 
     /**
      * Get tarif
-     *
      * @return \AppBundle\Entity\Tarif
      */
     public function getTarif()
     {
         return $this->tarif;
+    }    
+     /**
+     * Set user_id
+     *
+     * @param \int $user_id
+     *
+     * @return Reservation
+     */
+    public function setUser(\AppBundle\Entity\User $user_id = null)
+    {
+        $this->user_id = $user_id;
+
+        return $this;
+    }
+
+    /**
+     * Get user_id
+     *
+     * @return \int
+     */
+    public function getUser()
+    {
+        return $this->user_id;
     }
 }

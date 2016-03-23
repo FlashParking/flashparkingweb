@@ -33,9 +33,36 @@ class Requete
     private $user;
 
     /**
+<<<<<<< HEAD
     * @var Date
     * @ORM\Column(name="date", type="date")
     */
+=======
+     * @var int
+     */
+    private $type;
+
+
+    /**
+     * @return datetime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param datetime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @var datetime
+     */
+>>>>>>> origin/master
     private $date;
 
     /**
@@ -145,25 +172,18 @@ class Requete
     }
 
     /**
-     * Set date
-     *
-     * @param \DateTime $date
-     * @return Requete
+     * @return int
      */
-    public function setDate($date)
+    public function getType()
     {
-        $this->date = $date;
-
-        return $this;
+        return $this->type;
     }
 
     /**
-     * Get date
-     *
-     * @return \DateTime 
+     * @param int $type
      */
-    public function getDate()
+    public function setType($type)
     {
-        return $this->date;
+        $this->type = $type;
     }
 }

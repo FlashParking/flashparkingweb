@@ -7,6 +7,8 @@ security:
         in_memory:
             memory: ~
 
+    encoders:
+            FOS\UserBundle\Model\UserInterface: sha512
     firewalls:
         # disables authentication for assets and the profiler, adapt it according to your needs
         dev:
@@ -14,7 +16,8 @@ security:
             security: false
 
         main:
-            anonymous: ~
+           anonymous: ~
+
             # activate different ways to authenticate
 
             # http_basic: ~

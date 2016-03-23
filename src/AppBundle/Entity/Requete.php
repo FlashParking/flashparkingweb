@@ -32,6 +32,32 @@ class Requete
      */
     private $user;
 
+    /**
+     * @var int
+     */
+    private $type;
+
+
+    /**
+     * @return datetime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param datetime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
+     * @var datetime
+     */
+    private $date;
 
     /**
      * Get id
@@ -137,5 +163,21 @@ class Requete
     public function getUser()
     {
         return $this->user;
+    }
+
+    /**
+     * @return int
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param int $type
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
     }
 }

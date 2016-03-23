@@ -1,7 +1,7 @@
-AppBundle\Entity\Requete:
+AppBundle\Entity\Message:
     type: entity
     table: null
-    repositoryClass: AppBundle\Repository\RequeteRepository
+    repositoryClass: AppBundle\Repository\MessageRepository
     id:
         id:
             type: integer
@@ -9,27 +9,27 @@ AppBundle\Entity\Requete:
             generator:
                 strategy: AUTO
     fields:
-        sujet:
+        message:
             type: string
             length: 255
-        message:
-            type: text
+        nom:
+            type: string
+            length: 255
+        prenom:
+            type: string
+            length: 255
+        telephone:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
         date:
             type: datetime
     manyToOne:
-        statut:
-          targetEntity: Statut
-          joinColumn:
-            name: statut_id
-            referencedColumnName: id
-        type:
+        idType:
             targetEntity: TypeMessage
             joinColumn:
               name: type_id
               referencedColumnName: id
-        user:
-          targetEntity: User
-          joinColumn:
-            name: user_id
-            referencedColumnName: id
     lifecycleCallbacks: {  }

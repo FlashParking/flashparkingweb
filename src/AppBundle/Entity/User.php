@@ -96,8 +96,8 @@ class User implements UserInterface
     private $telephone;
 
     /**
-     * @var int
-     * @ORM\Column(type="integer")
+     * @var string
+     * @ORM\Column(type="string")
      */
     private $telephone2;
 

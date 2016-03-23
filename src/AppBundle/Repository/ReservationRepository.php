@@ -11,9 +11,21 @@ namespace AppBundle\Repository;
 class ReservationRepository extends \Doctrine\ORM\EntityRepository
 {
     
+    function getDuration($debut,$fin) {
+        $duration = date_diff($debut, $fin);
+        if ($duration->format('%a') <= 0) {
+            $duration = $duration->format('%H:%I h');
+        }
+        else {
+            $duration = $duration->format('%a jour(s)'); 
+        }
+        return $duration;
+    }
+    
     function getReservations() {
         
         $results = array();
+        $detail = array();
         $em = $this->getEntityManager();
         $query = $em->createQuery(
         'SELECT r
@@ -23,17 +35,20 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
         $reservations = $query->getResult();
         
         foreach ($reservations as $val) {
-        $id_reservation  = $val->getId();
-        $date = $val->getHeureDebutInit()->format('d/m/Y');
-        $heure_debut = $val->getHeureDebut();
-        $heure_fin = $val->getHeureFin();
-        $id_lieu = $val->getParking();
-        $duree = date_diff($heure_debut, $heure_fin);
-        $duree = $duree->format('%H:%I h');
-        $user_id = $val->getUser();
-        $parking_id = $val->getParking();
-        $tarif_id = $val->getTarif();
-            
+            $id_reservation  = $val->getId();
+            $date = $val->getHeureDebutInit()->format('d/m/Y');
+            $h_debut_init = $val->getHeureDebutInit()->format('H:i');
+            $h_fin_init = $val->getHeureFinInit()->format('H:i');
+            $h_debut = $val->getHeureDebut();
+            $h_fin = $val->getHeureFin();
+            $id_lieu = $val->getParking();
+            $duree = $em->getRepository('AppBundle:Reservation')->getDuration($h_debut, $h_fin);
+            $user_id = $val->getUser();
+            $parking_id = $val->getParking();
+            $tarif_id = $val->getTarif();
+    
+        
+        //Récupération de l'user
         $query = $em->createQuery(
         'SELECT u
         FROM AppBundle:User u
@@ -41,15 +56,17 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
         $user = $query->getResult();
         $nom = $user[0]->getNom() . ' ' . $user[0]->getPrenom();
             
+        //Récupération du parking
         $query = $em->createQuery(
         'SELECT p
         FROM AppBundle:Parking p
         WHERE p.id = :id')->setParameter('id', $parking_id);
         $parking = $query->getResult();
         $adresse = $parking[0]->getAdresse() . ' ' . $parking[0]->getCodePostal() . ' ' . $parking[0]->getVille();
-        $lieu = $parking[0]->getNom() . ' ' . $adresse;
+        $lieu = $parking[0]->getNom();
         $coordonnees_parking = $parking[0]->getCoordonnees();
         
+        //Récupération du tarif
         $query = $em->createQuery(
         'SELECT t
         FROM AppBundle:Tarif t
@@ -58,10 +75,11 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
         $nom_tarif = $tarif[0]->getLibelle();
         $montant_tarif = $tarif[0]->getPrix();
         
-        $detail = 'Heure de début : ' . $heure_debut->format('H:i') . '\n' . 'Heure de fin : ' . $heure_fin->format('H:i') . '\n' . 'Tarif : ' . $nom_tarif . ' ' . $montant_tarif . '€'; 
+        $detail[] = array("h_debut" => $h_debut->format('H:i'),  "h_fin" => $h_fin->format('H:i'),
+        "tarif" => $nom_tarif , "montant" => $montant_tarif . '€');
+        
         $results[] = array("id" => $id_reservation, "date" => $date, "lieu" => $lieu, "duree" => $duree, "user" => $nom, "detail" => $detail); 
         }
-        
         return $results;
     }
 }

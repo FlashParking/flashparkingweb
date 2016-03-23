@@ -53,7 +53,15 @@
                                     </tr>
                                     <tr>
                                          <td style="padding:0;" colspan="5">
-                                             <div id="{{'voir_detail_' ~ r.id}}" class="collapse">{{ r.detail }}</div></td>
+                                             <div id="{{'voir_detail_' ~ r.id}}" class="collapse">
+                                                 <ul class="list-group">
+                                                     {% for d in r.detail %}
+                                                          <li class="list-group-item">Heure de début : {{ d.h_debut }}</li>
+                                                          <li class="list-group-item">Heure de fin : {{ d.h_fin }}</li>
+                                                          <li class="list-group-item">Tarif : {{ d.tarif }} {{ r.detail.montant }}</li>
+                                            </ul>
+                                        </div>
+                                        </td>
                                     </tr>
                                         {% endfor %}
                                 </tbody>

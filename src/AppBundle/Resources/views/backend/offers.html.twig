@@ -1,0 +1,121 @@
+{% extends '@App/backend/base.html.twig' %}
+
+{% block body %}
+    <script src="//cdn.tinymce.com/4/tinymce.min.js"></script>
+    {% block javascripts %}
+    <script>
+        tinymce.init({
+            selector: 'textarea',
+            height: 500,
+            plugins: [
+                'advlist autolink lists link image charmap print preview anchor',
+                'searchreplace visualblocks code fullscreen',
+                'insertdatetime media table contextmenu paste code'
+            ],
+            toolbar: 'insertfile undo redo | styleselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image',
+            content_css: [
+                '//fast.fonts.net/cssapi/e6dc9b99-64fe-4292-ad98-6974f93cd2a2.css',
+                '//www.tinymce.com/css/codepen.min.css'
+            ]
+        });
+
+        window.onload = function() {
+            var table = document.getElementById("the-table");
+            var buttons = table.getElementsByTagName("button");
+            for(var i=0; i<buttons.length; i++) {
+                if(buttons[i].name=="delete-this-row") {
+                    buttons[i].onclick = function() {
+                        var buttonCell = this.parentNode;
+                        var deleteThisRow = buttonCell.parentNode;
+                        deleteThisRow.parentNode.removeChild(deleteThisRow);
+                    }
+                }
+            }
+        }
+    </script>
+    {% endblock %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="#">Pages</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>
+                    Pages(Offres)
+                </h1>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <div id="offre1">
+                        <textarea>
+                              <p style="text-align: center;">
+                                  <img src="{{ asset('images/Parking-vide.jpg') }}" style="border: 8px solid #fff;" class="img-responsive" alt="#">
+                              </p>
+                            <h1 style="text-align: center;">Un forfait avantageux 4 jours 49 €</h1>
+                            <p>
+                                La place de parking qui vous emmène directement en week-end ! <br/>
+                                49 € pour les stationnements du vendredi 00h00 au lundi 24h00
+                            </p>
+                            <h2>Comment réserver votre place de parking</h2>
+                            <p>
+                                1. Vous réservez et payez votre parking en ligne pour la durée de votre choix <br/>
+                                2. Vous recevrez par mail et par SMS les informations concernant votre réservation et votre code d'accès à votre parking.<br/>
+                                3. En arrivant devant la barrière de votre parking, vous composez votre code d'accès puis vous validez.<br/>
+                                4. A votre retour, pour sortir, vous composez à nouveau votre code d'accès puis vous validez. Aucun paiement ne vous sera demandé (si vous avez respecter les heures d'entrée et de sortie).<br/>
+                            </p>
+                            <h2>Conditions d'annulation de votre commande</h2>
+                            <p>
+                                Vous pouvez modifier votre réservation en ligne, à partir de votre espace personnel, jusqu'à 24h avant votre heure prévue d'arrivée.<br/>
+
+                                • En cas de dépassement, vous devez acquitter une somme forfaitaire de 60 € par tranche de 24 heures supplémentaire au P0, P2, P6, PAB, PCD et PEF<br/>
+
+                                Vous pouvez annuler votre réservation sur le site, à partir de votre espace personnel, jusqu'à 24h avant l'heure prévisionnelle d'entrée.<br/>
+
+                                • Annulation jusqu'à 24h avant la date d'entrée prévisionnelle : remboursement 100% (hors frais de dossier de 5 €).<br/>
+
+                                • Annulation inférieure à 24h : pas d'annulation possible, pas de remboursement.<br/>
+
+                                • Les sommes retenues correspondent à l'immobilisation de la place.<br/>
+                            </p>
+                        </textarea>
+                        </div>
+                        <div id="offre2">
+                            <h2 style="text-align : center;"></h2>
+                                <table id="the-table">
+                                    <thead>
+                                    <tr class="spaceUnder">
+                                        <th>Les offres : </th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    <tr class="spaceUnder">
+                                        <td>-15% sur le total</td>
+                                        <td>
+                                            <button type="button" name="delete-this-row" class="button-delete">Supprimer</button>
+                                        </td>
+                                    </tr>
+                                    <tr class="spaceUnder">
+                                        <td>-25 euros sur le forfait</td>
+                                        <td>
+                                            <button type="button" name="delete-this-row" class="button-delete">Supprimer</button>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            <button type="button" class="button-add">Rajouter une offre</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

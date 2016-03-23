@@ -51,11 +51,11 @@ AppBundle\Entity\User:
         dateNaissance:
             type: date
         telephone:
-            type: integer
-            nullable: true
+            type: string
+            length: 255
         telephone2:
-            type: integer
-            nullable: true
+            type: string
+            length: 255
         photo:
             type: text
             nullable: true

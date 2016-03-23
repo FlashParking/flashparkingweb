@@ -19,7 +19,7 @@
 
 <!-- CSS Custom -->
     <!--<link rel="stylesheet" href="../../../../../web/bundles/css/style.css">-->
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 
     <!-- Responsivity for older IE -->
     <!--[if lt IE 9]>
@@ -43,19 +43,43 @@ _________________________________________________________ -->
         <!--<div class="navbar-admin">-->
         <ul class="menu-horizontal">
             <ul style="float:right;list-style-type:none;">
-                {% if user == null %}
                     <li class="login-bar"><a href="#login">Se connecter</a></li>
-                {% else %}
-                    <li class="login-bar"><a href="#login">{{ user.login }} / Déconnexion</a></li>
-                {% endif %}
                 </ul>
         </ul>
 
+        <!--</div>
+
+       <div class="nav-vertical">
+
+        <ul class="menu-vertical">
+            <img src="{{ asset('images/logo-parking-2.jpg') }}" style="border: 8px solid #fff;" class="img-responsive logo" alt="#">
+            <li class="menu-ele"><a href="#home">Tableau de bord</a></li>
+            <li class="menu-ele"><a href="#news">Gestion des parkings</a></li>
+            <li class="menu-ele"><a href="#contact">Pages</a></li>
+            <li class="menu-ele"><a href="#about">Comptes utilisateurs</a></li>
+            <li class="menu-ele"><a href="#about">Réservations</a></li>
+            <li class="menu-ele">
+                <div class="dropdown"><a class="active" href="#about"><span class="glyphicon glyphicon-envelope"></span> Messages</a>
+                    <div class="dropdown-background">
+                        <div class="dropdown-content">
+                           <ul class="sous-menu-vertical">
+                            <a href="#">Recrutement</a>
+                            <a href="#">Plaintes</a>
+                            <a href="#">Contact</a>
+                           </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        </div>-->
+
         <div class="area"></div><nav class="main-menu">
+            <img src="{{ asset('images/logo-parking-2.jpg') }}" style="border: 8px solid #fff;" class="img-responsive logo" alt="#">
             <ul>
                 <li class="menu-ele">
-                    <a {% if nav_active == 'dashboard' %} { class="dropdown active"} {% endif %} href="dashboard">
-                        <i class="fa fa-home fa-2x fa-nav-menu"></i>
+                    <a href="#">
+                        <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                             Tableau de bord
                         </span>
@@ -63,8 +87,8 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
-                    <a {% if nav_active == 'search' %} { class="dropdown active"} {% endif %} href="search">
-                        <i class="fa fa-automobile fa-2x fa-nav-menu"></i>
+                    <a href="#">
+                        <i class="fa fa-automobile fa-2x"></i>
                         <span class="nav-text">
                             Gestion des parkings
                         </span>
@@ -72,17 +96,8 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
-                    <a {% if nav_active == 'offres' %} { class="dropdown active"} {% endif %} href="offres">
-                        <i class="fa fa-eur fa-2x"></i>
-                        <span class="nav-text">
-                            Gestion des offres
-                        </span>
-                    </a>
-
-                </li>
-                <li class="menu-ele">
-                    <a {% if nav_active == '' %} { class="dropdown active"} {% endif %}  href="#">
-                        <i class="fa fa-file-text-o fa-2x fa-nav-menu"></i>
+                    <a href="#">
+                        <i class="fa fa-file-text-o fa-2x"></i>
                         <span class="nav-text">
                             Pages
                         </span>
@@ -90,7 +105,7 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
-                    <a {% if nav_active == '' %} { class="dropdown active"} {% endif %}  href="#">
+                    <a href="#">
                         <i class="fa fa-user fa-2x"></i>
                         <span class="nav-text">
                             Comptes utilisateurs
@@ -98,8 +113,8 @@ _________________________________________________________ -->
                     </a>
                 </li>
                 <li class="menu-ele">
-                    <a {% if nav_active == 'reservations' %} { class="dropdown active"} {% endif %}  href="reservations">
-                        <i class="fa fa-calendar fa-2x fa-nav-menu"></i>
+                    <a href="#">
+                        <i class="fa fa-calendar fa-2x"></i>
                         <span class="nav-text">
                             Réservations
                         </span>
@@ -107,8 +122,8 @@ _________________________________________________________ -->
                 </li>
                 <li class="menu-ele active">
                     <div class="dropdown">
-                    <a href="#">
-                        <i class="fa fa-envelope fa-2x fa-nav-menu"></i>
+                    <a class="active" href="#">
+                        <i class="fa fa-envelope fa-2x"></i>
 
                         <span class="nav-text">
                             Messages
@@ -117,14 +132,14 @@ _________________________________________________________ -->
                         <div class="dropdown-background">
                             <div class="dropdown-content">
                                 <a href="#">Recrutement</a>
-                                <a {% if nav_active == 'dashboard' %} { class="dropdown active"} {% endif %}  href="plaintes">Plaintes</a>
+                                <a href="#">Plaintes</a>
                                 <a href="#">Contact</a>
                             </div>
                         </div>
                     </div>
-               </li>
-           </ul>
-       </nav>
+                                       </li>
+                                   </ul>
+                               </nav>
                                <!-- *** NAVBAR END *** -->
 
     </header>
@@ -167,10 +182,9 @@ _________________________________________________________ -->
 
 <!-- owl carousel -->
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    
-<script src="{{ asset('js/custom.js') }}"></script>
 
-    
+
+
 </body>
 
 </html>

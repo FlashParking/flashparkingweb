@@ -95,6 +95,15 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
+                    <a {% if nav_active == 'offres' %} { class="dropdown active"} {% endif %} href="offres">
+                        <i class="fa fa-eur fa-2x"></i>
+                        <span class="nav-text">
+                            Gestion des offres
+                        </span>
+                    </a>
+
+                </li>
+                <li class="menu-ele">
                     <a {% if nav_active == '' %} { class="dropdown active"} {% endif %}  href="#">
                         <i class="fa fa-file-text-o fa-2x"></i>
                         <span class="nav-text">

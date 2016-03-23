@@ -1,0 +1,35 @@
+AppBundle\Entity\Message:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\MessageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        message:
+            type: string
+            length: 255
+        nom:
+            type: string
+            length: 255
+        prenom:
+            type: string
+            length: 255
+        telephone:
+            type: string
+            length: 255
+        email:
+            type: string
+            length: 255
+        date:
+            type: datetime
+    manyToOne:
+        idType:
+            targetEntity: TypeMessage
+            joinColumn:
+              name: type_id
+              referencedColumnName: id
+    lifecycleCallbacks: {  }

@@ -4,6 +4,7 @@ namespace AppBundle\Controller;
 
 use AppBundle\Entity\User;
 use Symfony\Component\Form\Extension\Core\Type\BirthdayType ;
+use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
@@ -35,6 +36,7 @@ class CustomerRegisterController extends Controller
             ->add('password', PasswordType::class,array('label' => 'Mot de passe','required' => true,'attr' => array('class'=>'form-control')))
             ->add('password2', PasswordType::class,array('label' => 'Retapez votre mot de passe','required' => true,'attr' => array('class'=>'form-control')))
             ->add('email', EmailType::class ,array('label' => 'Email','required' => true,'attr' => array('class'=>'form-control')))
+            ->add('charte', CheckboxType::class, array('label' => 'J\'ai lu et j\'accepte les conditions de la charte de bonne conduite ','required' => true,))
             ->add('regist', SubmitType::class, array('label' => 'S\'enregistrer','attr' => array('class'=>'btn btn-template-main')))
             ->getForm();
 

@@ -14,6 +14,8 @@ AppBundle\Entity\Requete:
             length: 255
         message:
             type: text
+        date:
+            type: datetime
     manyToOne:
         statut:
           targetEntity: Statut

@@ -1,0 +1,15 @@
+AppBundle\Entity\TypeMessage:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\TypeMessageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        libelle:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

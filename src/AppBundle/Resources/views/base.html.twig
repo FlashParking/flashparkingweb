@@ -88,7 +88,7 @@ _________________________________________________________ -->
                                 <li {% if nav_active == 'accueil' %} { class="dropdown active"} {% endif %}>
                                     <a href="default">ACCUEIL</a>
                                 </li>
-                                <li {% if nav_active == 'societe' %} { class="dropdown active"} {% endif %}>
+                                <li {% if nav_active == 'charte' %} { class="dropdown active"} {% endif %}>
                                     <a href="javascript: void(0)"  data-toggle="dropdown">SOCIETE <b class="caret"></b></a>
                                     <ul class="dropdown-menu">
                                         <li><a href="valeurs">Nos valeurs</a>
@@ -97,7 +97,7 @@ _________________________________________________________ -->
                                         </li>
                                         <li><a href="systeme">Notre système</a>
                                         </li>
-                                        <li><a href="charte">Charte de bonne conduite</a>
+                                        <li {% if nav_active == 'charte' %} { class="dropdown active"} {% endif %}><a href="charte">Charte de bonne conduite</a>
                                         </li>
                                     </ul>
                                 </li>

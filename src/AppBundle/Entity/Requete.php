@@ -33,11 +33,11 @@ class Requete
     private $user;
 
     /**
-<<<<<<< HEAD
-    * @var Date
-    * @ORM\Column(name="date", type="date")
-    */
-=======
+     * @var datetime
+     */
+    private $date;
+    
+    /*
      * @var int
      */
     private $type;
@@ -58,12 +58,6 @@ class Requete
     {
         $this->date = $date;
     }
-
-    /**
-     * @var datetime
-     */
->>>>>>> origin/master
-    private $date;
 
     /**
      * Get id

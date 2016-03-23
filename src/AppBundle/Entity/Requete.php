@@ -33,6 +33,28 @@ class Requete
     private $user;
 
     /**
+     * @var int
+     */
+    private $type;
+
+
+    /**
+     * @return datetime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
+    /**
+     * @param datetime $date
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+    }
+
+    /**
      * @var datetime
      */
     private $date;
@@ -143,20 +165,19 @@ class Requete
         return $this->user;
     }
 
-
     /**
-     * @return datetime
+     * @return int
      */
-    public function getDate()
+    public function getType()
     {
-        return $this->date;
+        return $this->type;
     }
 
     /**
-     * @param datetime $date
+     * @param int $type
      */
-    public function setDate($date)
+    public function setType($type)
     {
-        $this->date = $date;
+        $this->type = $type;
     }
 }

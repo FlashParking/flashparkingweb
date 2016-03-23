@@ -22,6 +22,11 @@ AppBundle\Entity\Requete:
           joinColumn:
             name: statut_id
             referencedColumnName: id
+        type:
+            targetEntity: TypeMessage
+            joinColumn:
+              name: type_id
+              referencedColumnName: id
         user:
           targetEntity: User
           joinColumn:

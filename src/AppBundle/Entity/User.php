@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+
 /**
  * @ORM\Entity
  */
@@ -94,8 +96,8 @@ class User
     private $telephone;
 
     /**
-     * @var int
-     * @ORM\Column(type="integer")
+     * @var string
+     * @ORM\Column(type="string")
      */
     private $telephone2;
 
@@ -565,4 +567,15 @@ class User
     {
         return $this->code;
     }
+
+    /**
+     * Get role
+     *
+     * @return \AppBundle\Entity\Role
+     */
+    public function getRoles()
+    {
+        return $this->role;
+    }
+
 }

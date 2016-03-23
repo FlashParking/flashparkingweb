@@ -42,7 +42,7 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
             $h_debut = $val->getHeureDebut();
             $h_fin = $val->getHeureFin();
             $id_lieu = $val->getParking();
-            $duree = $em->getRepository('AppBundle:Reservation')->getDuration($h_debut, $h_fin);
+            $duree = $this->getDuration($h_debut, $h_fin);
             $user_id = $val->getUser();
             $parking_id = $val->getParking();
             $tarif_id = $val->getTarif();

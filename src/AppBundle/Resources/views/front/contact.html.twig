@@ -21,75 +21,65 @@
 
 <div id="content">
     <div class="container" id="contact">
-
         <div class="row">
             <div class="col-md-8">
-
                 <section>
-
-
                     <div class="heading">
                         <h3>Formulaire de contact Flashparking</h3>
                     </div>
-
-                    <form>
+                    {% for flash_message in app.session.flashbag.get('success') %}
+                        <div class="alert alert-success">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
+                    {% for flash_message in app.session.flashbag.get('warning') %}
+                        <div class="alert alert-warning">
+                            {{ flash_message }}
+                        </div>
+                    {% endfor %}
+                    {{ form_start(mailTo) }}
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="form-group">
-                                    <label for="firstname">Nom</label>
-                                    <input type="text" class="form-control" id="firstname">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="lastname">Prénom</label>
-                                    <input type="text" class="form-control" id="lastname">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="email">Email</label>
-                                    <input type="text" class="form-control" id="email">
-                                </div>
-                            </div>
-                            <div class="col-sm-6">
-                                <div class="form-group">
-                                    <label for="subject">Téléphone</label>
-                                    <input type="text" class="form-control" id="subject">
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="message">Message</label>
-                                    <textarea id="message" class="form-control"></textarea>
-                                </div>
-                            </div>
-                            <div class="col-sm-12">
-                                <div class="form-group">
-                                    <label for="exampleInputFile">Joindre un fichier</label>
-                                    <input type="file" id="exampleInputFile">
-                                    <div class="g-recaptcha" data-sitekey="6Le-ehITAAAAAFEU484twQ8l0ILT1GI5cKGLx-5Q"></div>
-                                </div>
-                            </div>
-                            <div class="col-sm-12 text-center">
-                                <button type="submit" class="btn btn-template-main"><i class="fa fa-envelope-o"></i>Envoyer</button>
+                                    {{ form_row(mailTo.nom) }}
 
+                                </div>
                             </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    {{ form_row(mailTo.prenom) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    {{ form_row(mailTo.email) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    {{ form_row(mailTo.telephone) }}
+                                </div>
+                            </div>
+                            <div class="col-sm-12">
+                                <div class="form-group">
+                                    {{ form_row(mailTo.message) }}
+                                </div>
+                                <div class="form-group">
+                                    {{ form_row(mailTo.type) }}
+                                </div>
+                             </div>
+                             <div class="col-sm-12 text-center">
+                                 <button type="submit" id="mailTo_connect" name="mailTo[connect]" class="btn btn-template-main"><i class="fa fa-envelope-o"></i>Envoyer</button>
+                             </div>
                         </div>
                         <!-- /.row -->
-                    </form>
-
-
+                        {{ form_widget(mailTo._token) }}
+                    {{ form_end(mailTo, {'render_rest': false}) }}
                 </section>
-
             </div>
-
             <div class="col-md-4 adresse wow fadeInUp" data-wow-delay="0ms">
-
                 <section>
-
                     <h3 class="text-uppercase-adresse">Informations</h3>
-
                     <p><strong>FlashParking</strong>
                         <br>48 Rue Camille Desmoulins
                         <br>92130 Issy-les-Moulineaux
@@ -97,23 +87,15 @@
                         <br>
                         <strong>France</strong>
                     </p>
-
                     <h3 class="text-uppercase-adresse"> Autres informations</h3>
-
                     <p>Lorem ipsum<br>
                         Lorem ipsum<br>
                     </p>
-
-
                 </section>
-
             </div>
-
-
             <div class="col-sm-12 text-center">
                 <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2626.60091704032!2d2.259291315486831!3d48.8276755108232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47e67a8fd6f0c00b%3A0xc47f2c9c658de2c2!2s49+Rue+Camille+Desmoulins%2C+92130+Issy-les-Moulineaux!5e0!3m2!1sfr!2sfr!4v1449357170843" style="width:100%" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
             </div>
-
         </div>
         <!-- /.row -->
 

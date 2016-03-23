@@ -84,4 +84,52 @@ class Commentaire
     {
         return $this->evaluation;
     }
+
+    /**
+     * Set parking
+     *
+     * @param \AppBundle\Entity\Parking $parking
+     *
+     * @return Commentaire
+     */
+    public function setParking(\AppBundle\Entity\Parking $parking = null)
+    {
+        $this->parking = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Get parking
+     *
+     * @return \AppBundle\Entity\Parking
+     */
+    public function getParking()
+    {
+        return $this->parking;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \AppBundle\Entity\User $user
+     *
+     * @return Commentaire
+     */
+    public function setUser(\AppBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \AppBundle\Entity\User
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 }

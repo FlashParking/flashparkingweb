@@ -1,24 +1,27 @@
 <?php
+/**
+ * Created by PhpStorm.
+ * User: Virginie
+ * Date: 23/03/2016
+ * Time: 10:35
+ */
 
-namespace AppBundle\Controller;
+namespace AppBundle\Controller\Backend;
 
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Symfony\Component\HttpFoundation\Request;
 
 class OffresController extends Controller
 {
     /**
-     * @Route("/offres", name="offres")
+     * @Route("backend/offres")
      */
-    public function contactAction(Request $request)
+    public function messageAction()
     {
-        $user = $request->getSession()->get('user');
         // replace this example code with whatever you need
-        return $this->render('@App/front/offres.html.twig', array(
+        return $this->render('@App/backend/offres.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'nav_active' => 'offres',
-            'user' => $user,
         ));
     }
 }

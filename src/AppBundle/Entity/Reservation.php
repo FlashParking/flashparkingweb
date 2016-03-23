@@ -146,11 +146,11 @@ class Reservation
     {
         return $this->heureFin;
     }
-    
-      /**
+
+    /**
      * Set parking
      *
-     * @param \int $parking
+     * @param \AppBundle\Entity\Parking $parking
      *
      * @return Reservation
      */
@@ -164,17 +164,16 @@ class Reservation
     /**
      * Get parking
      *
-     * @return \int
+     * @return \AppBundle\Entity\Parking
      */
     public function getParking()
     {
         return $this->parking;
     }
-    
-     /**
+    /**
      * Set tarif
      *
-     * @param \int $tarif
+     * @param \AppBundle\Entity\Tarif $tarif
      *
      * @return Reservation
      */
@@ -187,14 +186,12 @@ class Reservation
 
     /**
      * Get tarif
-     *
-     * @return \int
+     * @return \AppBundle\Entity\Tarif
      */
     public function getTarif()
     {
         return $this->tarif;
-    }
-    
+    }    
      /**
      * Set user_id
      *

@@ -7,7 +7,7 @@
         <div class="row">
             <div class="col-lg-12">
                 <ul class="breadcrumb">
-                    <li><a href="#">Réservations</a>
+                    <li><a href="#">Offres</a>
                     </li>
                     <li>En attente</li>
                 </ul>
@@ -17,7 +17,7 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h1>
-                    Réservations (en attente)
+
                 </h1>
             </div>
         </div>
@@ -32,39 +32,12 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Nom</th>
-                                    <th>Lieu</th>
+                                    <th>Lieux</th>
                                     <th>Durée</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                               {% for r in reservation %}
-                                        <tr>
-                                        <th scope="row">
-                                            {{ r.date }}
-                                        </th>
-                                        <td>{{ r.user }}</td>
-                                        <td>{{ r.lieu }}</td>
-                                        <td>{{ r.duree }}</td>
-                                        <td>
-                                              <button type="button" class="btn btn-success voir" data-toggle="collapse" data-target="{{'#voir_detail_' ~ r.id}}">Voir</button>
-                                            <button type="button" class="btn btn-danger supprimer" id="{{r.id}}">Supprimer</button>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                         <td style="padding:0;" colspan="5">
-                                             <div id="{{'voir_detail_' ~ r.id}}" class="collapse">
-                                                 <ul class="list-group">
-                                                     {% for d in r.detail %}
-                                                          <li class="list-group-item">Heure de début : {{ d.h_debut }}</li>
-                                                          <li class="list-group-item">Heure de fin : {{ d.h_fin }}</li>
-                                                          <li class="list-group-item">Tarif : {{ d.tarif }} {{ d.montant }}</li>
-                                            </ul>
-                                                 {% endfor %}
-                                        </div>
-                                        </td>
-                                    </tr>
-                                        {% endfor %}
                                 </tbody>
                             </table>
                         </div>

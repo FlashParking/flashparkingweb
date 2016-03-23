@@ -53,4 +53,28 @@ class Capteur
     {
         return $this->etat;
     }
+
+    /**
+     * Set parking
+     *
+     * @param \AppBundle\Entity\Parking $parking
+     *
+     * @return Capteur
+     */
+    public function setParking(\AppBundle\Entity\Parking $parking = null)
+    {
+        $this->parking = $parking;
+
+        return $this;
+    }
+
+    /**
+     * Get parking
+     *
+     * @return \AppBundle\Entity\Parking
+     */
+    public function getParking()
+    {
+        return $this->parking;
+    }
 }

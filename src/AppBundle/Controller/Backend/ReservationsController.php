@@ -18,7 +18,7 @@ class ReservationsController extends Controller
         $liste_reservations = $em->getRepository('AppBundle:Reservation')->getReservations();
         
         $user = $request->getSession()->get('user');
-        if($user->getRoles()->getId()!=1){
+        if( isset($user) && $user->getRoles()->getId()!=1){
             return $this->redirectToRoute('homepage');
         }
         return $this->render('@App/backend/reservations.html.twig', array(

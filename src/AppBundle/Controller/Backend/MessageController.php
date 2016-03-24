@@ -15,11 +15,9 @@ class MessageController extends Controller
     public function messageAction(Request $request)
     {
         $user = $request->getSession()->get('user');
-            if (isset($user)) {
-            if($user->getRoles()->getId()!=1){
+            if(isset($user) && $user->getRoles()->getId()!=1) {
                 return $this->redirectToRoute('homepage');
             }
-        }
         //Liste plaintes
         $em = $this->getDoctrine()->getEntityManager();
         $liste_plaintes = $em->getRepository('AppBundle:Requete')->getPlaintes();

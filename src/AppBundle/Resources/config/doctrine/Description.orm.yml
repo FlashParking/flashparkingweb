@@ -1,0 +1,13 @@
+AppBundle\Entity\Description:
+    type: entity
+    table: null
+    repositoryClass: AppBundle\Repository\DescriptionRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        descriptionAccueil:
+            type: string

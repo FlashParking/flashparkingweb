@@ -4,6 +4,27 @@ body {
     z-index: -1;
 }
 
+h2 {
+    text-align: center;
+    color: rgb(220, 136, 10);
+}
+
+p {
+    text-align: center;
+    padding-bottom: 100px;
+    border-bottom:1px dashed black;
+
+}
+
+#pie_chart {
+    float: right;
+    border-style: solid;
+}
+
+#chart_div {
+    float: left;
+    border-style: solid;
+}
 
 .bar-admin {
     padding: 0px;
@@ -43,10 +64,17 @@ body {
 .main-menu:hover,nav.main-menu.expanded {
     width:250px;
     overflow:visible;
+    background: url(../images/logo-parking-2.jpg) no-repeat;
+    background-size: 200px;
+    background-position: top;
+    background-color: white;
 }
 
 .main-menu {
-    background:white;
+    background: url(../images/smallLogoParking.png) no-repeat;
+    background-color: white;
+    background-position: top center;
+    background-size: 50px 50px;
     border-right:1px solid #e5e5e5;
     position:absolute;
     top:0;
@@ -62,7 +90,8 @@ body {
 }
 
 .main-menu>ul {
-    margin:7px 0;
+    margin:63px 0;
+
 }
 
 .main-menu li {
@@ -237,7 +266,7 @@ nav ul,nav li {
 {
     padding-top: 1px;
     left:10px;
-    BACKGROUND-COLOR: WHITE;
+    BACKGROUND-COLOR: white;
 }
 .dropdown-content {
     display: none;
@@ -268,4 +297,64 @@ nav ul,nav li {
 
 .sous-menu-vertical {
     list-style-type: none;
+}
+
+hr {
+    border-bottom: 1px solid black;
+    width: 50%;
+}
+
+.messages-non-lu {
+    padding-bottom: 10px;
+}
+
+.search-input {
+    padding-top: 10px;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.button-search {
+    color: white;
+    background-color: black;
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+}
+
+.search-div {
+    background-color: rgb(243,243,243);
+    padding : 20px;
+    text-align: right;
+}
+
+.fa-search {
+    display: inline-block;
+}
+
+.img-parking{
+max-width: 25%;
+}
+
+.btn-gestion{
+text-align: right;
+background-color: rgb(25,129,154);
+    border: none;
+}
+
+.hide {
+    padding: O;
+}
+
+.fa-search-custom {
+    position: relative;
+    display: table-cell;
+    width: 0px;
+    height: 0px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+.table>thead>tr>th {
+    border-bottom: 0;
 }

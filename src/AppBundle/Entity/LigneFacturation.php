@@ -54,4 +54,52 @@ class LigneFacturation
     {
         return $this->quantite;
     }
+
+    /**
+     * Set tarif
+     *
+     * @param \AppBundle\Entity\Tarif $tarif
+     *
+     * @return LigneFacturation
+     */
+    public function setTarif(\AppBundle\Entity\Tarif $tarif = null)
+    {
+        $this->tarif = $tarif;
+
+        return $this;
+    }
+
+    /**
+     * Get tarif
+     *
+     * @return \AppBundle\Entity\Tarif
+     */
+    public function getTarif()
+    {
+        return $this->tarif;
+    }
+
+    /**
+     * Set facturation
+     *
+     * @param \AppBundle\Entity\Facturation $facturation
+     *
+     * @return LigneFacturation
+     */
+    public function setFacturation(\AppBundle\Entity\Facturation $facturation = null)
+    {
+        $this->facturation = $facturation;
+
+        return $this;
+    }
+
+    /**
+     * Get facturation
+     *
+     * @return \AppBundle\Entity\Facturation
+     */
+    public function getFacturation()
+    {
+        return $this->facturation;
+    }
 }

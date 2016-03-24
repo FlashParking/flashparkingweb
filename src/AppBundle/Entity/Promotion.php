@@ -140,4 +140,52 @@ class Promotion
     {
         return $this->fin;
     }
+
+    /**
+     * Set tarif
+     *
+     * @param \AppBundle\Entity\Tarif $tarif
+     *
+     * @return Promotion
+     */
+    public function setTarif(\AppBundle\Entity\Tarif $tarif = null)
+    {
+        $this->tarif = $tarif;
+
+        return $this;
+    }
+
+    /**
+     * Get tarif
+     *
+     * @return \AppBundle\Entity\Tarif
+     */
+    public function getTarif()
+    {
+        return $this->tarif;
+    }
+
+    /**
+     * Set partenaire
+     *
+     * @param \AppBundle\Entity\Partenaire $partenaire
+     *
+     * @return Promotion
+     */
+    public function setPartenaire(\AppBundle\Entity\Partenaire $partenaire = null)
+    {
+        $this->partenaire = $partenaire;
+
+        return $this;
+    }
+
+    /**
+     * Get partenaire
+     *
+     * @return \AppBundle\Entity\Partenaire
+     */
+    public function getPartenaire()
+    {
+        return $this->partenaire;
+    }
 }

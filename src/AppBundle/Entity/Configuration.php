@@ -23,4 +23,3 @@ class Configuration
         return $this->id;
     }
 }
-

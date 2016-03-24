@@ -18,6 +18,11 @@ AppBundle\Entity\Reservation:
         heureFin:
             type: datetime
     manyToOne:
+        user_id:
+          targetEntity: User
+          joinColumn:
+            name: user_id
+            referencedColumnName: id
         parking:
           targetEntity: Parking
           joinColumn:

@@ -8,7 +8,7 @@ class Description
 {
     private $id;
 
-    private $descriptionAccueil;
+    private $description_accueil;
 
 
     public function getId()
@@ -25,13 +25,13 @@ class Description
 
     public function getDescriptionAccueil()
     {
-        return $this->descriptionAccueil;
+        return $this->description_accueil;
     }
 
 
-    public function setDescriptionAccueil($descriptionAccueil)
+    public function setDescriptionAccueil($description_accueil)
     {
-        $this->descriptionAccueil = $descriptionAccueil;
+        $this->description_accueil = $description_accueil;
     }
 
 

@@ -9,5 +9,5 @@ AppBundle\Entity\Description:
             generator:
                 strategy: AUTO
     fields:
-        descriptionAccueil:
+        description_accueil:
             type: string

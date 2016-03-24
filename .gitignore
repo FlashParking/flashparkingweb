@@ -9,6 +9,7 @@
 /build/
 /vendor/
 /bin/
+.idea/
 /composer.phar
 app/check.php
 app/check.php

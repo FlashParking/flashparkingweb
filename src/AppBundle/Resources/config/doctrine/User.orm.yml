@@ -53,9 +53,11 @@ AppBundle\Entity\User:
         telephone:
             type: string
             length: 255
+            nullable: true
         telephone2:
             type: string
             length: 255
+            nullable: true
         photo:
             type: text
             nullable: true

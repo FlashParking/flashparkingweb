@@ -57,10 +57,17 @@ class CustomerRegisterController extends Controller
                 $salt = '$2y$11$' . substr(md5(uniqid(rand(), true)), 0, 22);
                 $user->setPassword(crypt($register->getData()->getPassword(), $salt));
             }
-            $user->setRole(2);
+            $role = $bdd
+                ->getRepository('AppBundle:Role')
+                ->findOneById(2);
+            $user->setRole($role);
             $em =$bdd->getManager();
             $em->persist($user);
             $em->flush();
+            $this->addFlash(
+                'success',
+                'Votre inscription a bien été prise en compte.'
+            );
         }
         if ($form->isSubmitted() && $form->isValid()) {
             $userToLog = $bdd

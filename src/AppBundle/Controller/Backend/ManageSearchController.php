@@ -19,6 +19,10 @@ class ManageSearchController extends Controller
      */
     public function parkingAction(Request $request)
     {
+        $user = $request->getSession()->get('user');
+        if( isset($user) && $user->getRoles()->getId()!=1){
+            return $this->redirectToRoute('homepage');
+        }
         $em = $this->getDoctrine()->getEntityManager();
         $parking = $em->getRepository('AppBundle:Parking')->getParking();
 
@@ -55,6 +59,7 @@ class ManageSearchController extends Controller
             'nav_active' => 'search',
             'parking' => $parking,
             'form' => $form->createView(),
+            'user' => $user,
         ));
     }
 

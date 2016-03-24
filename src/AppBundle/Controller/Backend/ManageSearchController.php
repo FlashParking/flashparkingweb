@@ -97,7 +97,6 @@ class ManageSearchController extends Controller
            'nav_active' => 'search',
            'form' => $form->createView(),
        ));*/
-    }
-
+    }  
 
 }

@@ -18,6 +18,12 @@ class DashboardController extends Controller
      */
     public function dashboardAction()
     {
+
+        $user = $request->getSession()->get('user');
+        if(isset($user) && $user->getRoles()->getId()!=1){
+            return $this->redirectToRoute('homepage');
+        }
+
         // replace this example code with whatever you need
         return $this->render('@App/backend/dashboard.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),

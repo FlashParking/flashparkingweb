@@ -37,7 +37,7 @@
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
-                                <tbody>
+                                <tbody id="tab_body_reservations">
                                {% for r in reservation %}
                                         <tr>
                                         <th scope="row">
@@ -56,9 +56,11 @@
                                              <div id="{{'voir_detail_' ~ r.id}}" class="collapse">
                                                  <ul class="list-group">
                                                      {% for d in r.detail %}
-                                                          <li class="list-group-item">Heure de début : {{ d.h_debut }}</li>
-                                                          <li class="list-group-item">Heure de fin : {{ d.h_fin }}</li>
-                                                          <li class="list-group-item">Tarif : {{ d.tarif }} {{ d.montant }}</li>
+                                                     <li class="list-group-item">Adresse du parking : {{ d.adresse }}</li>
+                                                        <li class="list-group-item">Heure d'arrivée théorique : {{ d.h_debut_init }} - Heure de départ théorique : {{ d.h_fin_init }}</li>
+                                                     <li class="list-group-item">
+                                                         Heure d'arrivée :  {{ d.h_debut }} -  Heure de départ : {{ d.h_fin }}</li>
+                                                          <li class="list-group-item"> {{ d.tarif }} {{ d.montant }}</li>
                                             </ul>
                                                  {% endfor %}
                                         </div>

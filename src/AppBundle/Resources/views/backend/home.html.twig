@@ -1,0 +1,315 @@
+{% extends '@App/backend/base.html.twig' %}
+
+{% block body %}
+   
+    <div class="container">
+    <div class="titre">
+        <h1>Pages (accueil)</h1>   
+        <hr>
+    </div>
+    <h3>Modifier texte accueil</h3>
+  <div class="hero-unit">
+	<div id="alerts"></div>
+    <div class="btn-toolbar" data-role="editor-toolbar" data-target="#editor">
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font"><i class="icon-font"></i><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          </ul>
+        </div>
+      <div class="btn-group">
+        <a class="btn dropdown-toggle" data-toggle="dropdown" title="Font Size"><i class="icon-text-height"></i>&nbsp;<b class="caret"></b></a>
+          <ul class="dropdown-menu">
+          <li><a data-edit="fontSize 5"><font size="5">Huge</font></a></li>
+          <li><a data-edit="fontSize 3"><font size="3">Normal</font></a></li>
+          <li><a data-edit="fontSize 1"><font size="1">Small</font></a></li>
+          </ul>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="bold" title="Bold (Ctrl/Cmd+B)"><i class="icon-bold"></i></a>
+        <a class="btn" data-edit="italic" title="Italic (Ctrl/Cmd+I)"><i class="icon-italic"></i></a>
+        <a class="btn" data-edit="strikethrough" title="Strikethrough"><i class="icon-strikethrough"></i></a>
+        <a class="btn" data-edit="underline" title="Underline (Ctrl/Cmd+U)"><i class="icon-underline"></i></a>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="insertunorderedlist" title="Bullet list"><i class="icon-list-ul"></i></a>
+        <a class="btn" data-edit="insertorderedlist" title="Number list"><i class="icon-list-ol"></i></a>
+        <a class="btn" data-edit="outdent" title="Reduce indent (Shift+Tab)"><i class="icon-indent-left"></i></a>
+        <a class="btn" data-edit="indent" title="Indent (Tab)"><i class="icon-indent-right"></i></a>
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="justifyleft" title="Align Left (Ctrl/Cmd+L)"><i class="icon-align-left"></i></a>
+        <a class="btn" data-edit="justifycenter" title="Center (Ctrl/Cmd+E)"><i class="icon-align-center"></i></a>
+        <a class="btn" data-edit="justifyright" title="Align Right (Ctrl/Cmd+R)"><i class="icon-align-right"></i></a>
+        <a class="btn" data-edit="justifyfull" title="Justify (Ctrl/Cmd+J)"><i class="icon-align-justify"></i></a>
+      </div>
+      <div class="btn-group">
+		  <a class="btn dropdown-toggle" data-toggle="dropdown" title="Hyperlink"><i class="icon-link"></i></a>
+		    <div class="dropdown-menu input-append">
+			    <input class="span2" placeholder="URL" type="text" data-edit="createLink"/>
+			    <button class="btn" type="button">Add</button>
+        </div>
+        <a class="btn" data-edit="unlink" title="Remove Hyperlink"><i class="icon-cut"></i></a>
+
+      </div>
+      
+      <div class="btn-group">
+        <a class="btn" title="Insert picture (or just drag & drop)" id="pictureBtn"><i class="icon-picture"></i></a>
+        <input type="file" data-role="magic-overlay" data-target="#pictureBtn" data-edit="insertImage" />
+      </div>
+      <div class="btn-group">
+        <a class="btn" data-edit="undo" title="Undo (Ctrl/Cmd+Z)"><i class="icon-undo"></i></a>
+        <a class="btn" data-edit="redo" title="Redo (Ctrl/Cmd+Y)"><i class="icon-repeat"></i></a>
+      </div>
+      <input type="text" data-edit="inserttext" id="voiceBtn" x-webkit-speech="">
+    </div>
+
+    <div id="editor">
+      SECURITE
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis velit libero, commodo id dignissim ut, iaculis non dolor.
+
+CONFORT
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis velit libero, commodo id dignissim ut, iaculis non dolor.
+
+DISPONIBILITE
+
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis velit libero, commodo id dignissim ut, iaculis non dolor.
+    </div>
+<br/>
+<button type="submit" class="btn btn-primary pull-right">Valider</button>
+  </div>
+
+    <!--commentaire des clients-->
+    <h3>Commentaires des clients</h3>
+    
+    <div class="chat-panel panel panel-default col-lg-12">
+                        <!-- /.panel-heading -->
+                        <br/>
+                        <div class="panel-heading trier">
+                        <label>Filtre : </label><input type="text" name="Filtre"/></div>
+                        
+                        <div class="panel-body">
+                            <ul class="chat">
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle">
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        
+                                        <div class="pull-right date-chat">Il y a 26 minutes</div>
+                                        <div class="header">
+                                            <strong class="primary-font">Monsieur client 1</strong><br/>
+                                        </div>
+                                        <div class="btn-group pull-right">
+                                            <button type="button" class="btn btn-warning">Action</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              <span class="caret"></span>
+                                              <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                              <li><a href="#" data-toggle="modal" data-target="#myModal">Répondre</a></li>
+                                              <li><a href="#">Modérer</a></li>
+                                              <li><a href="#">Valider</a></li>
+                                              <li role="separator" class="divider"></li>
+                                              <li><a href="#">Supprimer</a></li>
+                                            </ul>
+                                          </div>
+                                        <p class="col-md-9 p-chat">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle">
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        
+                                        <div class="pull-right date-chat">Il y a 4 heures</div>
+                                        <div class="header">
+                                            <strong class="primary-font">Monsieur Client 2</strong><br/>
+                                        </div>
+                                        <div class="btn-group pull-right">
+                                            <button type="button" class="btn btn-warning">Action</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              <span class="caret"></span>
+                                              <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                              <li><a href="#" data-toggle="modal" data-target="#myModal">Répondre</a></li>
+                                              <li><a href="#">Modérer</a></li>
+                                              <li><a href="#">Valider</a></li>
+                                              <li role="separator" class="divider"></li>
+                                              <li><a href="#">Supprimer</a></li>
+                                            </ul>
+                                          </div>
+                                        <p class="col-md-9 p-chat">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                                <li class="left clearfix">
+                                    <span class="chat-img pull-left">
+                                        <img src="http://placehold.it/50/55C1E7/fff" alt="User Avatar" class="img-circle">
+                                    </span>
+                                    <div class="chat-body clearfix">
+                                        
+                                        <div class="pull-right date-chat">Il y a 8 heures</div>
+                                        <div class="header">
+                                            <strong class="primary-font">Monsieur Client 3</strong><br/>
+                                        </div>
+                                        <div class="btn-group pull-right">
+                                            <button type="button" class="btn btn-warning">Action</button>
+                                            <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                              <span class="caret"></span>
+                                              <span class="sr-only">Toggle Dropdown</span>
+                                            </button>
+                                            <ul class="dropdown-menu">
+                                              <li><a href="#" data-toggle="modal" data-target="#myModal">Répondre</a></li>
+                                              <li><a href="#">Modérer</a></li>
+                                              <li><a href="#">Valider</a></li>
+                                              <li role="separator" class="divider"></li>
+                                              <li><a href="#">Supprimer</a></li>
+                                            </ul>
+                                          </div>
+                                        <p class="col-md-9 p-chat">
+                                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                                        </p>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                        <!--pagination-->
+                        <div class="center-block">
+                        <nav>
+                          <ul class="pagination">
+                            <li>
+                              <a href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                              </a>
+                            </li>
+                            <li><a href="#">1</a></li>
+                            <li><a href="#">2</a></li>
+                            <li><a href="#">3</a></li>
+                            <li><a href="#">4</a></li>
+                            <li><a href="#">5</a></li>
+                            <li>
+                              <a href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                              </a>
+                            </li>
+                          </ul>
+                        </nav>
+                        </div>
+                    </div>
+    
+    <!-- Modal -->
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h4 class="modal-title" id="myModalLabel">Répondre</h4>
+      </div>
+      <div class="modal-body">
+        <div class="panel-footer">
+                            <div class="input-group">
+                                <input id="btn-input" type="text" class="form-control input-sm" placeholder="Répondre aux commentaires ici...">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-warning btn-sm" id="btn-chat">
+                                        Envoyer
+                                    </button>
+                                </span>
+                            </div>
+                        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    <!--Partenaires-->
+    <h3>Partenaires</h3>
+    
+    <div class="panel panel-default partner">
+        <div class="panel-body">
+
+          <!-- Standar Form -->
+          <h4>Selectionnez un fichier</h4>
+          <form action="" method="post" enctype="multipart/form-data" id="js-upload-form">
+            <div class="form-inline">
+              <div class="form-group">
+                <input type="file" name="files[]" id="js-upload-files" multiple>
+              </div>
+              <button type="submit" class="btn btn-sm btn-warning" id="js-upload-submit">Envoyer</button>
+            </div>
+          </form>
+
+          <!-- Drop Zone -->
+          <h4>Ou faites glisser votre fichier</h4>
+          <div class="upload-drop-zone" id="drop-zone">
+            GLISSER ICI
+          </div>
+
+          <!-- Progress Bar -->
+          <div class="progress">
+            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+              <span class="sr-only">100% Complete</span>
+            </div>
+          </div>
+
+          <!-- Upload Finished -->
+          <div class="js-upload-finished">
+            <h3>Partenaires déja existant : </h3>
+            <div class="list-group">
+              <span class="list-group-item list-group-item-success"><span class=" pull-right"><i class="fa fa-remove fa-2x"></i></span>image-01.jpg</span>
+              <span class="list-group-item list-group-item-success"><span class=" pull-right"> <i class="fa fa-remove fa-2x"></i></span>image-02.jpg</span>
+             <span class="list-group-item list-group-item-success"><span class=" pull-right"><i class="fa fa-remove fa-2x"></i></span>image-03.jpg</span>
+              <span class="list-group-item list-group-item-success"><span class=" pull-right"> <i class="fa fa-remove fa-2x"></i></span>image-04.jpg</span>
+             <span class="list-group-item list-group-item-success"><span class=" pull-right"><i class="fa fa-remove fa-2x"></i></span>image-05.jpg</span>
+              <span class="list-group-item list-group-item-success"><span class=" pull-right"> <i class="fa fa-remove fa-2x"></i></span>image-06.jpg</span>
+            
+            
+            
+            
+            </div>
+          </div>
+           <div class="col-md-12">
+               
+               <h3>Aperçu : </h3>
+
+                        <ul><div class="owl-item" style="width: 180px;">
+                            <li class="item">
+                                <img src="{{ asset('images/customer-1.png') }}" alt="" class="img-responsive">
+                            </li></div><div class="owl-item" style="width: 180px;"><li class="item">
+                                <img src="{{ asset('images/logo-aquaboulevard-222.png') }}" style="margin-top:20px;" alt="" class="img-responsive">
+                            </li></div><div class="owl-item" style="width: 180px;"><li class="item">
+                                <img src="{{ asset('images/customer-3.png') }}"  alt="" class="img-responsive">
+                            </li></div><div class="owl-item" style="width: 180px;"><li class="item">
+                                <img src="{{ asset('images/customer-4.png') }}"  alt="" class="img-responsive">
+                            </li></div><div class="owl-item" style="width: 180px;"><li class="item">
+                                <img src="{{ asset('images/customer-5.png') }}"  alt="" class="img-responsive">
+                            </li></div><div class="owl-item" style="width: 180px;"><li class="item">
+                                <img src="{{ asset('images/customer-6.png') }}" alt="" class="img-responsive">
+                            </li></div>
+                         </ul>
+                          
+                        
+           </div><button class="btn btn-warning btn-sm pull-right" id="btn-chat">
+                                        Envoyer
+                                    </button>
+        </div>
+    </div>
+      </div>
+    
+</div>
+
+
+
+
+
+{% endblock %}

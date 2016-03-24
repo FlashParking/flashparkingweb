@@ -24,7 +24,7 @@
     <link href="{{ asset('css/style.default.css') }}" rel="stylesheet" id="theme-stylesheet">
 
     <!-- Custom stylesheet - for your changes -->
-    <link href="{{ asset('css/custom.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
     <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
     
     
@@ -72,7 +72,7 @@ _________________________________________________________ -->
                     <div class="row">
                         <div class="navbar-header">
 
-                            <a class="navbar-brand home" href="index.php">
+                            <a class="navbar-brand home" href="default">
                                 <img src="{{ ('../images/logo-parking-2.jpg') }}" alt="FlashParking logo" class="hidden-xs hidden-sm">
                                 <img src="{{ ('../images/logo-parking-2-small.jpg') }}" alt="Universal logo" class="visible-xs visible-sm"><span class="sr-only">Universal - go to homepage</span>
                             </a>
@@ -122,7 +122,11 @@ _________________________________________________________ -->
                                 </li>
 
                                 <li style="background-color: #E5A52B;" {% if nav_active == 'connexion' %} { class="dropdown active"} {% endif %}>
-                                    <a href="customer-register" style="color:#fff;"><i class="fa fa-user"></i> <span class="hidden-xs">Connexion</span></a>
+                                    {% if user == null %}
+                                        <a href="customer-register" style="color:#fff;"><i class="fa fa-user"></i> <span class="hidden-xs">Connexion</span></a>
+                                    {% else %}
+                                       <a href="logout" style="color:#fff;"><i class="fa fa-user"></i> <span class="hidden-xs">{{ user.login}}</br>Déconnexion</span></a>
+                                    {% endif %}
                                 </li>
                             </ul>
 

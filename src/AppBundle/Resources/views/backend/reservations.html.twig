@@ -32,42 +32,39 @@
                                 <tr>
                                     <th>Date</th>
                                     <th>Nom</th>
-                                    <th>Lieux</th>
+                                    <th>Lieu</th>
                                     <th>Durée</th>
                                     <th>Actions</th>
                                 </tr>
                                 </thead>
                                 <tbody>
-                                <tr>
-                                    <th scope="row">01/01/2000</th>
-                                    <td>Mark Dacascos</td>
-                                    <td>48 rue Camille Desmoulins 92000 Issy-les-Moulineaux</td>
-                                    <td>1 semaine</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success">Voir</button>
-                                        <button type="button" class="btn btn-danger">Supprimer</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">01/01/2000</th>
-                                    <td>Mark Dacascos</td>
-                                    <td>48 rue Camille Desmoulins 92000 Issy-les-Moulineaux</td>
-                                    <td>1 semaine</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success">Voir</button>
-                                        <button type="button" class="btn btn-danger">Supprimer</button>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">01/01/2000</th>
-                                    <td>Mark Dacascos</td>
-                                    <td>48 rue Camille Desmoulins 92000 Issy-les-Moulineaux</td>
-                                    <td>1 semaine</td>
-                                    <td>
-                                        <button type="button" class="btn btn-success">Voir</button>
-                                        <button type="button" class="btn btn-danger">Supprimer</button>
-                                    </td>
-                                </tr>
+                               {% for r in reservation %}
+                                        <tr>
+                                        <th scope="row">
+                                            {{ r.date }}
+                                        </th>
+                                        <td>{{ r.user }}</td>
+                                        <td>{{ r.lieu }}</td>
+                                        <td>{{ r.duree }}</td>
+                                        <td>
+                                              <button type="button" class="btn btn-success voir" data-toggle="collapse" data-target="{{'#voir_detail_' ~ r.id}}">Voir</button>
+                                            <button type="button" class="btn btn-danger supprimer" id="{{r.id}}">Supprimer</button>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                         <td style="padding:0;" colspan="5">
+                                             <div id="{{'voir_detail_' ~ r.id}}" class="collapse">
+                                                 <ul class="list-group">
+                                                     {% for d in r.detail %}
+                                                          <li class="list-group-item">Heure de début : {{ d.h_debut }}</li>
+                                                          <li class="list-group-item">Heure de fin : {{ d.h_fin }}</li>
+                                                          <li class="list-group-item">Tarif : {{ d.tarif }} {{ d.montant }}</li>
+                                            </ul>
+                                                 {% endfor %}
+                                        </div>
+                                        </td>
+                                    </tr>
+                                        {% endfor %}
                                 </tbody>
                             </table>
                         </div>

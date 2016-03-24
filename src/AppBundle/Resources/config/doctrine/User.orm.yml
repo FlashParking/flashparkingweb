@@ -27,22 +27,27 @@ AppBundle\Entity\User:
             type: text
         adresse:
             type: text
+            nullable: true
         adresse2:
             type: text
             nullable: true
         codePostal:
             type: string
             length: 255
+            nullable: true
         ville:
             type: string
             length: 255
+            nullable: true
         immatriculation:
             type: string
             length: '20'
             unique: true
+            nullable: true
         voiture:
             type: string
             length: 255
+            nullable: true
         dateNaissance:
             type: date
         telephone:
@@ -56,6 +61,7 @@ AppBundle\Entity\User:
             nullable: true
         charte:
             type: integer
+            nullable: true
     manyToOne:
         role:
           targetEntity: Role

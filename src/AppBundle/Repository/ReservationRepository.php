@@ -37,8 +37,8 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
         foreach ($reservations as $val) {
             $id_reservation  = $val->getId();
             $date = $val->getHeureDebutInit()->format('d/m/Y');
-            $h_debut_init = $val->getHeureDebutInit()->format('H:i');
-            $h_fin_init = $val->getHeureFinInit()->format('H:i');
+            $h_debut_init = $val->getHeureDebutInit();
+            $h_fin_init = $val->getHeureFinInit();
             $h_debut = $val->getHeureDebut();
             $h_fin = $val->getHeureFin();
             $id_lieu = $val->getParking();
@@ -62,7 +62,7 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
         FROM AppBundle:Parking p
         WHERE p.id = :id')->setParameter('id', $parking_id);
         $parking = $query->getResult();
-        $adresse = $parking[0]->getAdresse() . ' ' . $parking[0]->getCodePostal() . ' ' . $parking[0]->getVille();
+        $adresse = $parking[0]->getAdresse() . ' ' . $parking[0]->getCodePostal() . ', ' . $parking[0]->getVille();
         $lieu = $parking[0]->getNom();
         $coordonnees_parking = $parking[0]->getCoordonnees();
         
@@ -75,11 +75,19 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
         $nom_tarif = $tarif[0]->getLibelle();
         $montant_tarif = $tarif[0]->getPrix();
         
-        $detail[] = array("h_debut" => $h_debut->format('H:i'),  "h_fin" => $h_fin->format('H:i'),
-        "tarif" => $nom_tarif , "montant" => $montant_tarif . '€');
+        $detail[] = array("h_debut_init" => $h_debut_init->format('H:i'), "h_fin_init" => $h_fin_init->format('H:i'), "h_debut" => $h_debut->format('H:i'),  "h_fin" => $h_fin->format('H:i'),
+        "tarif" => $nom_tarif , "montant" => $montant_tarif . '€', "adresse" => $adresse);
         
-        $results[] = array("id" => $id_reservation, "date" => $date, "lieu" => $lieu, "duree" => $duree, "user" => $nom, "detail" => $detail); 
+        $results[] = array("id" => $id_reservation, "date" => $date, "lieu" => $lieu, "duree" => $duree, "user" => $nom, "detail" => $detail);
+        $detail = array();
         }
         return $results;
+    }
+    
+    function deleteReservation($id_message) {
+        $em = $this->getEntityManager();
+        $line = $em->getRepository('AppBundle:Reservation')->find($id_message);
+        $em->remove($line);
+        $em->flush();
     }
 }

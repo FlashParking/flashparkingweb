@@ -1,0 +1,90 @@
+{% extends '@App/backend/base.html.twig' %}
+
+{% block body %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    {% block javascripts %}
+        <script>
+            google.charts.load('current', {'packages':['corechart', 'line']});
+            google.charts.setOnLoadCallback(drawChart);
+            google.charts.setOnLoadCallback(drawLineChart);
+            function drawChart() {
+
+                var data = google.visualization.arrayToDataTable([
+                    ['Task', 'Hours per Day'],
+                    ['Flux',     11],
+                    ['Résultats naturels',      2],
+                    ['Site référent',  2],
+                    ['Accès directs', 2],
+                    ['E-mail',    7]
+                ]);
+
+                var options = {
+                    title: 'Type de trafic'
+                };
+
+                var chart = new google.visualization.PieChart(document.getElementById('pie_chart'));
+
+                chart.draw(data, options);
+            }
+            google.charts.setOnLoadCallback(drawBackgroundColor);
+
+            function drawLineChart() {
+                var data = new google.visualization.DataTable();
+                data.addColumn('number', 'X');
+                data.addColumn('number', 'Visites');
+
+                data.addRows([
+                    [1, 1000],   [15, 12500],  [23, 8000],  [30, 20000],
+                ]);
+
+                var options = {
+                    hAxis: {
+                        title: 'Janvier'
+                    }
+                };
+
+                var chart = new google.visualization.LineChart(document.getElementById('chart_div'));
+                chart.draw(data, options);
+            }
+
+        </script>
+    {% endblock %}
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <ul class="breadcrumb">
+                    <li><a href="#">Tableau de bord</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>
+                    Tableau de bord
+                </h1>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="panel panel-default">
+                    <div class="panel-body">
+                        <h2>Bienvenue sur l'interface d'administration du site FlashParking</h2>
+                        <P>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                            Proin leo dui, condimentum posuere pellentesque sed, ornare
+                            a enim. Suspendisse ut urna vel quam consequat sollicitudin.
+                            Nunc sagittis dignissim purus sed consectetur. Aenean nec ultrices
+                            odio, feugiat ullamcorper sem.</P>
+                        <div id="pie_chart" style="width: 500px; height: 400px;"></div>
+                        <div id="chart_div" style="width: 500px; height: 400px;"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

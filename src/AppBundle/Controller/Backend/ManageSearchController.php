@@ -1,9 +1,5 @@
 <?php
 /**
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> origin/master
 * Created by PhpStorm.
 * User: aude_
 */
@@ -21,7 +17,6 @@ class ManageSearchController extends Controller
     /**
      * @Route("/backend/search")
      */
-
     public function parkingAction(Request $request)
     {
         $em = $this->getDoctrine()->getEntityManager();

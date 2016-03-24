@@ -1,0 +1,107 @@
+{% extends '@App/base.html.twig' %}
+
+{% block body %}
+    <style>
+        .promotion{
+            background-color: #D78311;
+            min-height: 350px;
+            margin-bottom: 20px;
+            padding: 20px;
+            color: #fff;
+        }
+
+        .offre{
+            background-color: whitesmoke;
+            min-height: 150px;
+            margin-bottom: 20px;
+            padding: 20px;
+        }
+
+        h3{
+            color:#fff;
+        }
+
+        .promotion p{
+            margin-top:60px;
+        }
+
+        p{
+            text-align:justify;
+        }
+    </style>
+    <div id="heading-breadcrumbs">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <h1>NOS OFFRES</h1>
+                </div>
+                <div class="col-md-5">
+                    <ul class="breadcrumb">
+                        <li><a href="index.php">Accueil</a>
+                        </li>
+                        <li>Nos offres</li>
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="content">
+        <div class="container" id="contact">
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="promotion">
+
+                        <div class="col-md-4"><h3>PROMOTIONS DU MOMENT</h3>
+                            <img src="{{ asset('images/fotolia_88944742.jpg') }}" style="border: 8px solid #fff;" class="img-responsive" alt="#">
+                        </div>
+                        <div class="col-md-6">
+                            <p>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi enim, auctor sit amet justo sit amet, sodales gravida ex. Suspendisse iaculis elit eu consequat eleifend. Aliquam nulla tellus, ultrices nec dui a, mattis laoreet neque. Integer vitae mollis quam, at consequat libero. Pellentesque in elit id risus tincidunt imperdiet eu sit amet massa. Ut eget mi non risus pulvinar elementum vel id libero. Morbi et nibh lacus. Vestibulum dolor urna, rhoncus a dolor fermentum, vehicula placerat elit. Nullam rhoncus elementum sollicitudin. Aliquam euismod venenatis justo non hendrerit.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="offre wow bounceInUp" data-wow-delay="0ms">
+                        <h2>1 mois offert</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi enim, auctor sit amet justo sit amet, sodales gravida ex. Suspendisse iaculis elit eu consequat eleifend. Aliquam nulla tellus, ultrices nec dui a, mattis laoreet neque. Integer vitae mollis quam, at consequat libero. Pellentesque in elit id risus tincidunt imperdiet eu sit amet massa. Ut eget mi non risus pulvinar elementum vel id libero. Morbi et nibh lacus. Vestibulum dolor urna, rhoncus a dolor fermentum, vehicula placerat elit. Nullam rhoncus elementum sollicitudin. Aliquam euismod venenatis justo non hendrerit.</p>
+                        <button class="btn btn-warning">LIRE LA SUITE</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="offre wow bounceInUp" data-wow-delay="0ms">
+                        <h2 >Lavage offert</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi enim, auctor sit amet justo sit amet, sodales gravida ex. Suspendisse iaculis elit eu consequat eleifend. Aliquam nulla tellus, ultrices nec dui a, mattis laoreet neque. Integer vitae mollis quam, at consequat libero. Pellentesque in elit id risus tincidunt imperdiet eu sit amet massa. Ut eget mi non risus pulvinar elementum vel id libero. Morbi et nibh lacus. Vestibulum dolor urna, rhoncus a dolor fermentum, vehicula placerat elit. Nullam rhoncus elementum sollicitudin. Aliquam euismod venenatis justo non hendrerit.</p>
+                        <button class="btn btn-warning">LIRE LA SUITE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="offre wow bounceInUp" data-wow-delay="500ms">
+                        <h2>-10% sur le Total</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi enim, auctor sit amet justo sit amet, sodales gravida ex. Suspendisse iaculis elit eu consequat eleifend. Aliquam nulla tellus, ultrices nec dui a, mattis laoreet neque. Integer vitae mollis quam, at consequat libero. Pellentesque in elit id risus tincidunt imperdiet eu sit amet massa. Ut eget mi non risus pulvinar elementum vel id libero. Morbi et nibh lacus. Vestibulum dolor urna, rhoncus a dolor fermentum, vehicula placerat elit. Nullam rhoncus elementum sollicitudin. Aliquam euismod venenatis justo non hendrerit.</p>
+                        <button class="btn btn-warning">LIRE LA SUITE</button>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="offre wow bounceInUp" data-wow-delay="500ms">
+                        <h2>1 semaine gratuite</h2>
+                        <p>
+                            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed mi enim, auctor sit amet justo sit amet, sodales gravida ex. Suspendisse iaculis elit eu consequat eleifend. Aliquam nulla tellus, ultrices nec dui a, mattis laoreet neque. Integer vitae mollis quam, at consequat libero. Pellentesque in elit id risus tincidunt imperdiet eu sit amet massa. Ut eget mi non risus pulvinar elementum vel id libero. Morbi et nibh lacus. Vestibulum dolor urna, rhoncus a dolor fermentum, vehicula placerat elit. Nullam rhoncus elementum sollicitudin. Aliquam euismod venenatis justo non hendrerit.</p>
+                        <button class="btn btn-warning">LIRE LA SUITE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

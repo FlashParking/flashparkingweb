@@ -8,7 +8,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>Solution Flashparking</title>
-
     <meta name="keywords" content="">
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
@@ -16,6 +15,12 @@
     <!-- Bootstrap and Font Awesome css -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+ <link href="{{ asset('css/homeadmin.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/indexnisha.css') }}" rel="stylesheet">
+
+    <link href="{{ asset('css/prettify.css') }}" rel="stylesheet">
+
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/3.0.2/css/font-awesome.css" rel="stylesheet">
 
 <!-- CSS Custom -->
     <!--<link rel="stylesheet" href="../../../../../web/bundles/css/style.css">-->
@@ -39,23 +44,46 @@
         <!-- *** NAVBAR ***
 _________________________________________________________ -->
 
-       <div class="bar-admin"></div>
+       <!--<div class="bar-admin"></div>-->
         <!--<div class="navbar-admin">-->
         <ul class="menu-horizontal">
             <ul style="float:right;list-style-type:none;">
-                {% if user == null %}
-                    <li class="login-bar"><a href="#login">Se connecter</a></li>
-                {% else %}
-                    <li class="login-bar"><a href="#login">{{ user.login }} / Déconnexion</a></li>
-                {% endif %}
+                    <li class="login-bar"><a href="#login"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Se connecter</a></li>
                 </ul>
         </ul>
+
+        <!--</div>
+
+       <div class="nav-vertical">
+
+        <ul class="menu-vertical">
+            <img src="{{ asset('images/smallLogoParking.png') }}" style="border: 8px solid #fff;" class="img-responsive logo" alt="#">
+            <li class="menu-ele"><a href="#home">Tableau de bord</a></li>
+            <li class="menu-ele"><a href="#news">Gestion des parkings</a></li>
+            <li class="menu-ele"><a href="#contact">Pages</a></li>
+            <li class="menu-ele"><a href="#about">Comptes utilisateurs</a></li>
+            <li class="menu-ele"><a href="#about">Réservations</a></li>
+            <li class="menu-ele">
+                <div class="dropdown"><a class="active" href="#about"><span class="glyphicon glyphicon-envelope"></span> Messages</a>
+                    <div class="dropdown-background">
+                        <div class="dropdown-content">
+                           <ul class="sous-menu-vertical">
+                            <a href="#">Recrutement</a>
+                            <a href="#">Plaintes</a>
+                            <a href="#">Contact</a>
+                           </ul>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+        </div>-->
 
         <div class="area"></div><nav class="main-menu">
             <ul>
                 <li class="menu-ele">
                     <a {% if nav_active == 'dashboard' %} { class="dropdown active"} {% endif %} href="dashboard">
-                        <i class="fa fa-home fa-2x fa-nav-menu"></i>
+                        <i class="fa fa-home fa-2x"></i>
                         <span class="nav-text">
                             Tableau de bord
                         </span>
@@ -64,7 +92,7 @@ _________________________________________________________ -->
                 </li>
                 <li class="menu-ele">
                     <a {% if nav_active == 'search' %} { class="dropdown active"} {% endif %} href="search">
-                        <i class="fa fa-automobile fa-2x fa-nav-menu"></i>
+                        <i class="fa fa-automobile fa-2x"></i>
                         <span class="nav-text">
                             Gestion des parkings
                         </span>
@@ -72,6 +100,7 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
+<<<<<<< Updated upstream
                     <a {% if nav_active == 'offres' %} { class="dropdown active"} {% endif %} href="offres">
                         <i class="fa fa-eur fa-2x"></i>
                         <span class="nav-text">
@@ -81,12 +110,21 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
+=======
+                    <div class="dropdown">
+>>>>>>> Stashed changes
                     <a {% if nav_active == '' %} { class="dropdown active"} {% endif %}  href="#">
-                        <i class="fa fa-file-text-o fa-2x fa-nav-menu"></i>
+                        <i class="fa fa-file-text-o fa-2x"></i>
                         <span class="nav-text">
                             Pages
                         </span>
                     </a>
+                    <div class="dropdown-background">
+                            <div class="dropdown-content">
+                                <a {% if nav_active == 'home' %} { class="dropdown active"} {% endif %}  href="home">Accueil</a>
+                            </div>
+                    </div>
+                    </div>
 
                 </li>
                 <li class="menu-ele">
@@ -99,7 +137,7 @@ _________________________________________________________ -->
                 </li>
                 <li class="menu-ele">
                     <a {% if nav_active == 'reservations' %} { class="dropdown active"} {% endif %}  href="reservations">
-                        <i class="fa fa-calendar fa-2x fa-nav-menu"></i>
+                        <i class="fa fa-calendar fa-2x"></i>
                         <span class="nav-text">
                             Réservations
                         </span>
@@ -108,7 +146,7 @@ _________________________________________________________ -->
                 <li class="menu-ele active">
                     <div class="dropdown">
                     <a href="#">
-                        <i class="fa fa-envelope fa-2x fa-nav-menu"></i>
+                        <i class="fa fa-envelope fa-2x"></i>
 
                         <span class="nav-text">
                             Messages
@@ -167,10 +205,108 @@ _________________________________________________________ -->
 
 <!-- owl carousel -->
 <script src="{{ asset('js/owl.carousel.min.js') }}"></script>
-    
-<script src="{{ asset('js/custom.js') }}"></script>
 
-    
+   <!--nishantha-->
+
+    <script src="{{ asset('js/jquery.hotkeys.js') }}"></script>
+    <script src="{{ asset('js/prettify.js') }}"></script>
+    <script src="{{ asset('js/bootstrap-wysiwyg.js') }}"></script>
+<script>
+  $(function(){
+    function initToolbarBootstrapBindings() {
+      var fonts = ['Serif', 'Sans', 'Arial', 'Arial Black', 'Courier', 
+            'Courier New', 'Comic Sans MS', 'Helvetica', 'Impact', 'Lucida Grande', 'Lucida Sans', 'Tahoma', 'Times',
+            'Times New Roman', 'Verdana'],
+            fontTarget = $('[title=Font]').siblings('.dropdown-menu');
+      $.each(fonts, function (idx, fontName) {
+          fontTarget.append($('<li><a data-edit="fontName ' + fontName +'" style="font-family:\''+ fontName +'\'">'+fontName + '</a></li>'));
+      });
+      $('a[title]').tooltip({container:'body'});
+    	$('.dropdown-menu input').click(function() {return false;})
+		    .change(function () {$(this).parent('.dropdown-menu').siblings('.dropdown-toggle').dropdown('toggle');})
+        .keydown('esc', function () {this.value='';$(this).change();});
+
+      $('[data-role=magic-overlay]').each(function () { 
+        var overlay = $(this), target = $(overlay.data('target')); 
+        overlay.css('opacity', 0).css('position', 'absolute').offset(target.offset()).width(target.outerWidth()).height(target.outerHeight());
+      });
+      if ("onwebkitspeechchange"  in document.createElement("input")) {
+        var editorOffset = $('#editor').offset();
+        $('#voiceBtn').css('position','absolute').offset({top: editorOffset.top, left: editorOffset.left+$('#editor').innerWidth()-35});
+      } else {
+        $('#voiceBtn').hide();
+      }
+	};
+	function showErrorAlert (reason, detail) {
+		var msg='';
+		if (reason==='unsupported-file-type') { msg = "Unsupported format " +detail; }
+		else {
+			console.log("error uploading file", reason, detail);
+		}
+		$('<div class="alert"> <button type="button" class="close" data-dismiss="alert">&times;</button>'+ 
+		 '<strong>File upload error</strong> '+msg+' </div>').prependTo('#alerts');
+	};
+    initToolbarBootstrapBindings();  
+	$('#editor').wysiwyg({ fileUploadError: showErrorAlert} );
+    window.prettyPrint && prettyPrint();
+  });
+</script>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "http://connect.facebook.net/en_GB/all.js#xfbml=1";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));
+ </script>
+
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="http://platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+<script>
++ function($) {
+    'use strict';
+
+    // UPLOAD CLASS DEFINITION
+    // ======================
+
+    var dropZone = document.getElementById('drop-zone');
+    var uploadForm = document.getElementById('js-upload-form');
+
+    var startUpload = function(files) {
+        console.log(files)
+    }
+
+    uploadForm.addEventListener('submit', function(e) {
+        var uploadFiles = document.getElementById('js-upload-files').files;
+        e.preventDefault()
+
+        startUpload(uploadFiles)
+    })
+
+    dropZone.ondrop = function(e) {
+        e.preventDefault();
+        this.className = 'upload-drop-zone';
+
+        startUpload(e.dataTransfer.files)
+    }
+
+    dropZone.ondragover = function() {
+        this.className = 'upload-drop-zone drop';
+        return false;
+    }
+
+    dropZone.ondragleave = function() {
+        this.className = 'upload-drop-zone';
+        return false;
+    }
+
+}(jQuery);
+</script>
+
+
+
+
+
 </body>
 
 </html>

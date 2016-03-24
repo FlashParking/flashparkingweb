@@ -20,7 +20,7 @@ class DashboardController extends Controller
     public function dashboardAction(Request $request)
     {
         $user = $request->getSession()->get('user');
-        if($user->getRoles()->getId()!=1){
+        if(isset($user) && $user->getRoles()->getId()!=1){
             return $this->redirectToRoute('homepage');
         }
         // replace this example code with whatever you need

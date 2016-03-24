@@ -30,7 +30,7 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
         $query = $em->createQuery(
         'SELECT r
         FROM AppBundle:Reservation r
-        ORDER BY r.id DESC');
+        ORDER BY r.heureDebutInit DESC');
 
         $reservations = $query->getResult();
         
@@ -62,7 +62,7 @@ class ReservationRepository extends \Doctrine\ORM\EntityRepository
         FROM AppBundle:Parking p
         WHERE p.id = :id')->setParameter('id', $parking_id);
         $parking = $query->getResult();
-        $adresse = $parking[0]->getAdresse() . ' ' . $parking[0]->getCodePostal() . ', ' . $parking[0]->getVille();
+        $adresse = $parking[0]->getAdresse() . ', ' . $parking[0]->getCodePostal() . ' ' . $parking[0]->getVille();
         $lieu = $parking[0]->getNom();
         $coordonnees_parking = $parking[0]->getCoordonnees();
         

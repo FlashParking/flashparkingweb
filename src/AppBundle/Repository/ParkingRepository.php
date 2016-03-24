@@ -10,4 +10,63 @@ namespace AppBundle\Repository;
  */
 class ParkingRepository extends \Doctrine\ORM\EntityRepository
 {
+    function getParking() {
+
+        $results = array();
+        $detail = array();
+        $em = $this->getEntityManager();
+        $query = $em->createQuery(
+            'SELECT r
+        FROM AppBundle:Parking r
+        ORDER BY r.id DESC');
+        $parking = $query->getResult();
+
+        foreach ($parking as $val) {
+
+            $parking_id = $val->getId();
+
+            //Récupération du parking
+            $query = $em->createQuery(
+                'SELECT p
+        FROM AppBundle:Parking p
+        WHERE p.id = :id')->setParameter('id', $parking_id);
+            $parking = $query->getResult();
+            $adresse = $parking[0]->getAdresse() . ' ' . $parking[0]->getCodePostal() . ' ' . $parking[0]->getVille();
+            $lieu = $parking[0]->getNom();
+            $place_dispo = $parking[0]->getPlaceLibre();
+            $place_prise = $parking[0]->getPlacePrise();
+            $coordonnees_parking = $parking[0]->getCoordonnees();
+
+            $detail[] = array ( "adresse" => $adresse, "placeLibre" => $place_dispo, "placePrise" => $place_prise, "coordonnees" => $coordonnees_parking);
+            $results[] = array( "id" => $parking_id, "lieu" => $lieu, "detail" => $detail);
+            $detail = array();
+        }
+        return $results;
+    }
+
+    function insertIfNotExists(Parking $parking)
+    {
+        // Check if it exists first
+        $q = self::create("u")
+            ->where("u.nom = ?", $parking->nom)
+            ->execute();
+
+        // Do we have any?
+        if ($q->count())
+        {
+            // Yes, return the existing one
+            return $q->getFirst();
+        }
+
+        // No, save and return the newly created one
+        $parking->save();
+        return $parking;
+    }
+
+    function deleteParking($id){
+            $em = $this->getEntityManager();
+            $line = $em->getRepository('AppBundle:Parking')->find($id);
+            $em->remove($line);
+            $em->flush();
+        }
 }

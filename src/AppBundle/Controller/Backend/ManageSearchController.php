@@ -1,6 +1,9 @@
 <?php
 /**
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+>>>>>>> origin/master
 * Created by PhpStorm.
 * User: aude_
 */
@@ -12,7 +15,6 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
-
 
 class ManageSearchController extends Controller
 {
@@ -100,21 +102,6 @@ class ManageSearchController extends Controller
            'nav_active' => 'search',
            'form' => $form->createView(),
        ));*/
-    }
-
-
-    public function ManageSearchAction(Request $request)
-    {
-        $user = $request->getSession()->get('user');
-        if($user->getRoles()->getId()!=1){
-            return $this->redirectToRoute('homepage');
-        }
-        // replace this example code with whatever you need
-        return $this->render('@App/backend/search.html.twig', array(
-            'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-            'nav_active' => 'search',
-            'user' => $user,
-        ));
-    }
+    }  
 
 }

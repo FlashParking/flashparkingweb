@@ -113,13 +113,13 @@ class User
      */
     private $charte;
     /**
-     * @var int
+     * @var Role
      * @ORM\ManyToOne()(targetEntity="Role")
      * @ORM\JoinColumn(name="id_role", referencedColumnName="id")
      */
     private $role;
     /**
-     * @var int
+     * @var QrCode
      * @ORM\ManyToOne()(targetEntity="QrCode")
      * @ORM\JoinColumn(name="id_code", referencedColumnName="id")
      */

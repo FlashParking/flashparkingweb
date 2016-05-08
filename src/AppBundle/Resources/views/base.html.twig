@@ -125,7 +125,7 @@ _________________________________________________________ -->
                                     {% if user == null %}
                                         <a href="customer-register" style="color:#fff;"><i class="fa fa-user"></i> <span class="hidden-xs">Connexion</span></a>
                                     {% else %}
-                                       <a href="logout" style="color:#fff;"><i class="fa fa-user"></i> <span class="hidden-xs">{{ user.login}}</br>Déconnexion</span></a>
+                                      <i class="fa fa-user"></i><span class="hidden-xs"><a href="account" style="color:#fff;">{{ user.login}}</a></br> <a href="logout" style="color:#fff;">Déconnexion</a></span>
                                     {% endif %}
                                 </li>
                             </ul>

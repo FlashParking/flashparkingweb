@@ -337,7 +337,53 @@ max-width: 25%;
 }
 
 .btn-gestion{
-text-align: right;
-background-color: rgb(25,129,154);
+    text-align: right;
+    background-color: rgb(25,129,154);
     border: none;
+}
+
+/* Style des onglets présents dans la page des offres*/
+.ongletDesOffres{
+    overflow: hidden;
+    border-bottom: 1px solid rgb(25,129,154);
+}
+
+.ongletDesOffres ul {
+    float: right;
+    margin-bottom: 0;
+    list-style: none;
+
+
+}
+
+.ongletDesOffres ul li{
+    float: left;
+    margin-left: 3px;
+    padding: 1em 1em 0.3em 1em;
+    background-color: rgb(25,129,154);
+    border-radius: 1em 1em 0em 0em;
+    float: left;
+    color: white;
+    font-weight: normal;
+    cursor: pointer;
+}
+
+.ongletDesOffres ul li a.active {
+
+}
+
+#offresManagerTab{
+    font-weight: bold;
+}
+
+#tarifsManager, #promotionsManager{
+    display: none;
+}
+.buttonsUpDel{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-bottom: 1px rgb(25,129,154) dashed;
+}
+#addTarifButton, #addPromoButton, #addOffreButton{
+    margin-top: 10px;
 }

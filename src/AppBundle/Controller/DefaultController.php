@@ -12,7 +12,6 @@ class DefaultController extends Controller
     {
         // replace this example code with whatever you need
         return $this->render('@App/front/index.html.twig', array(
-            'base_dir' => realpath($this->getParameter('kernel.root_dir').'/..'),
             'nav_active' => 'accueil',
         ));
     }

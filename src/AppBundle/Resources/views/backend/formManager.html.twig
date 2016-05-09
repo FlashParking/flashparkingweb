@@ -1,0 +1,12 @@
+<div class="modal-body">
+    {{ form_start(form) }}
+    {{ form_row(form.libelle) }}
+    {{ form_row(form.description) }}
+    {{ form_row(form.prix) }}
+    {{ form_rest(form) }}
+</div>
+<div class="modal-footer">
+    <button type="button" class="js-tarif-submit btn btn-success">Valider</button>
+    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+</div>
+{{ form_end(form) }}

@@ -12,7 +12,6 @@
     <meta name="keywords" content="">
 
     <link href='http://fonts.googleapis.com/css?family=Roboto:400,100,100italic,300,300italic,500,700,800' rel='stylesheet' type='text/css'>
-
     <!-- Bootstrap and Font Awesome css -->
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
@@ -95,7 +94,7 @@ _________________________________________________________ -->
 
                 </li>
                 <li class="menu-ele">
-                    <a {% if nav_active == 'offres' %} { class="dropdown active"} {% endif %} href="offres">
+                    <a {% if nav_active == 'offres' %} { class="dropdown active"} {% endif %} href="offresManager">
                         <i class="fa fa-eur fa-2x"></i>
                         <span class="nav-text">
                             Gestion des offres
@@ -184,6 +183,7 @@ _________________________________________________________ -->
 <script src="{{ asset('js/front.js') }}"></script>
 
 <script src="{{ asset('js/wow.min.js') }}"></script>
+<script src="{{ asset('js/locales/tabs.js') }}"></script>
 <script>
     new WOW().init();
 </script>

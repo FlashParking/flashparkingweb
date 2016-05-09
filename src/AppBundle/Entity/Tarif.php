@@ -2,6 +2,9 @@
 
 namespace AppBundle\Entity;
 
+use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
+
 /**
  * Tarif
  */
@@ -14,16 +17,34 @@ class Tarif
 
     /**
      * @var string
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min = 5,
+     *     max = 255
+     * )
      */
     private $libelle;
 
     /**
      * @var string
+     *
+     * @Assert\NotBlank
+     * @Assert\Length(
+     *     min = 5,
+     *     max = 255
+     * )
      */
     private $description;
 
     /**
      * @var float
+     *
+     * @Assert\NotBlank
+     * @Assert\Type(
+     *     message = "Le prix doit être un nombre",
+     *     type= "float"
+     * )
      */
     private $prix;
 

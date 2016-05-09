@@ -9,5 +9,10 @@
 /build/
 /vendor/
 /bin/
+.idea/
 /composer.phar
-/.idea/
+app/check.php
+app/SymfonyRequirements.php
+composer.json
+composer.lock
+web/config.php

@@ -5,13 +5,12 @@ namespace AppBundle\Controller;
 use AppBundle\Entity\Message;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\EmailType;
 use Symfony\Component\Form\Extension\Core\Type\NumberType;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
-use Symfony\Component\HttpFoundation\Request;
-
 
 class ContactController extends Controller
 {
@@ -20,6 +19,8 @@ class ContactController extends Controller
      */
     public function contactAction(Request $request)
     {
+        $user = $request->getSession()->get('user');
+
         $mailTo = $this->createFormBuilder()
             ->setMethod('post')
             ->add('nom', TextType::class,array('label' => 'Nom','required' => true,'attr' => array('class'=>'form-control', 'id'=>'nom')))
@@ -67,6 +68,7 @@ class ContactController extends Controller
         return $this->render('@App/front/contact.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
             'nav_active' => 'contact',
+            'user' => $user,
             'mailTo' => $mailTo->createView(),
         ));
     }

@@ -29,36 +29,21 @@
 
                     <p class="text-muted">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean
                         ultricies mi vitae est. Mauris placerat eleifend leo.</p>
-                    {% for flash_message in app.session.flashbag.get('success') %}
-                        <div class="alert alert-success">
-                            {{ flash_message }}
-                        </div>
-                    {% endfor %}
-                    {% for flash_message in app.session.flashbag.get('warning') %}
-                        <div class="alert alert-warning">
-                            {{ flash_message }}
-                        </div>
-                    {% endfor %}
+
                     <hr>
-                    {{ form_start(register) }}
-                    <div class="form-group">
-                        {{ form_row(register.nom) }}
-                        {{ form_row(register.prenom) }}
-                        {{ form_row(register.login) }}
-                        {{ form_row(register.dateNaissance) }}
-                    </div>
-                    <div class="form-group">
-                        {{ form_row(register.email) }}
-                        {{ form_row(register.password) }}
-                    </div>
-                    <a href="charte" alt="Lien vers la charte de bonne conduite" target="_blank">Charte de bonne conduite</a>
-                    <div class="form-group">
-                        {{ form_row(register.charte) }}
-                    </div>
-                    <div class="text-center">
-                        <button type="submit" id="register_regist" name="register[regist]" class="btn btn-template-main"><i class="fa fa-user-md"></i>S'enregistrer</button>
-                    </div>
-                    {{ form_widget(register._token) }} {{ form_end(register, {'render_rest': false}) }}
+                    <form action="customer-orders.php" method="post">
+                        <div class="form-group">
+                            <label for="name-login">Nom</label>
+                            <input type="text" class="form-control" id="name-login">
+                        </div>
+                        <div class="form-group">
+                            <label for="email-login">Email</label>
+                            <input type="text" class="form-control" id="email-login">
+                        </div>
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-template-main"><i class="fa fa-user-md"></i> S'enregistrer</button>
+                        </div>
+                    </form>
                 </div>
             </div>
 
@@ -70,17 +55,20 @@
                         ultricies mi vitae est. Mauris placerat eleifend leo.</p>
 
                     <hr>
-                    {{ form_start(form) }}
+
+                    <form action="customer-orders.php" method="post">
                         <div class="form-group">
-                            {{ form_row(form.email) }}
+                            <label for="email">Email</label>
+                            <input type="text" class="form-control" id="email">
                         </div>
                         <div class="form-group">
-                            {{ form_row(form.password) }}
+                            <label for="password">Mot de passe</label>
+                            <input type="password" class="form-control" id="password">
                         </div>
                         <div class="text-center">
-                            <button type="submit" id="form_connect" name="form[connect]" class="btn btn-template-main"><i class="fa fa-sign-in"></i>Se Connecter</button>
+                            <button type="submit" class="btn btn-template-main"><i class="fa fa-sign-in"></i> Se connecter</button>
                         </div>
-                    {{ form_widget(form._token) }} {{ form_end(form, {'render_rest': false}) }}
+                    </form>
                 </div>
             </div>
 

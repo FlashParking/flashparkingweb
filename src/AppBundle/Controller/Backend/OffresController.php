@@ -1,9 +1,9 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: aude_
- *Date: 21/01/2016
- * Time: 20:17
+ * User: Virginie
+ * Date: 23/03/2016
+ * Time: 10:35
  */
 
 namespace AppBundle\Controller\Backend;
@@ -12,22 +12,22 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
-class DashboardController extends Controller
+class OffresController extends Controller
 {
     /**
-     * @Route("/backend/dashboard",name="dashboard")
+     * @Route("backend/offres")
      */
-    public function dashboardAction(Request $request)
+    public function messageAction(Request $request)
     {
         $user = $request->getSession()->get('user');
-        if(isset($user) && $user->getRoles()->getId()!=1){
+        if( isset($user) && $user->getRoles()->getId()!=1){
             return $this->redirectToRoute('homepage');
         }
         // replace this example code with whatever you need
-        return $this->render('@App/backend/dashboard.html.twig', array(
+        return $this->render('@App/backend/offres.html.twig', array(
             'base_dir' => realpath($this->container->getParameter('kernel.root_dir').'/..'),
-            'nav_active' => 'dashboard',
-            'user' =>$user
+            'nav_active' => 'offres',
+            'user' => $user,
         ));
     }
 }

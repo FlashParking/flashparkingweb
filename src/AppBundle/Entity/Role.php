@@ -1,6 +1,8 @@
 <?php
 
 namespace AppBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\ORM\Mapping\ManyToMany;
 
 /**
  * Role
@@ -22,7 +24,10 @@ class Role
      */
     private $description;
 
-
+ /**
+  * @var ArrayCollection|Droit[]
+  * @ManyToMany(targetEntity="Droit")
+  */
     private $droits;
 
     /**

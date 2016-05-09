@@ -1,7 +1,26 @@
 {% extends '@App/backend/base.html.twig' %}
 
 {% block body %}
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 
+    {% block javascripts %}
+        <script>
+            //Function To Display Popup
+            function div_show() {
+                document.getElementById('abc').style.display = "block";
+            }
+            //Function to Hide Popup
+            function div_hide(){
+                document.getElementById('abc').style.display = "none";
+            }
+            function CloseAndRefresh()
+            {
+                opener.location.reload(true);
+                self.close();
+            }
+
+        </script>
+    {% endblock %}
     <div class="container">
 
         <div class="row">
@@ -9,7 +28,6 @@
                 <ul class="breadcrumb">
                     <li><a href="#">Gestion des parkings</a>
                     </li>
-                    <li>Recherche</li>
                 </ul>
             </div>
         </div>
@@ -17,7 +35,8 @@
         <div class="row">
             <div class="col-lg-12 text-center">
                 <h3 class="bottom-bar">
-                    Gestion des parkings (Recherche)
+
+                    Gestion des parkings
                 </h3>
                 <hr>
             </div>
@@ -32,53 +51,128 @@
                                 <div class="search-div">
                                     <input type="text" name="manage-search" id="manage-search"/><i class="fa fa-search" style="font-size:24px" ></i>
                                     <button class="button-search">Rechercher</button>
+
+                                    <button id="popup" onclick="div_show()"><i class="fa fa-plus" style="width:30px; height: 20px;"></i></button>
                                 </div>
+
                             </table>
                         </div>
-                        <table>
-                        <tbody>
-                        <tr>
-                            <td>
-                                <img class="img-parking" src="{{  asset('images/fotolia_87357649.jpg')}}">
-                                <br>
-                                Parking Issy les Moulineaux <br>
-                                <button type="button" class="btn btn-success btn-gestion">Voir</button>
-                            </td>
-                            <td>
-                                <img class="img-parking" src="{{  asset('images/fotolia_87357649.jpg')}}">
-                                <br>
-                                Parking Issy les Moulineaux <br>
-                                <button type="button" class="btn btn-success btn-gestion">Voir</button>
-                            </td>
-                            <td>
-                                <img class="img-parking" src="{{  asset('images/fotolia_87357649.jpg')}}">
-                                <br>
-                                Parking Issy les Moulineaux <br>
-                                <button type="button" class="btn btn-success btn-gestion">Voir</button>
-                            </td>
-                        </tr>
-                        </tbody>
-                        </table>
-                        <nav class="text-center">
+                        <div id="abc">
+                            <div class="well">
+                                {{ form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
 
-                            <ul class="pagination">
-                                <li>
-                                    <a href="#" aria-label="Previous">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </a>
-                                </li>
-                                <li><a href="#">1</a></li>
-                                <li><a href="#">2</a></li>
-                                <li><a href="#">3</a></li>
-                                <li><a href="#">4</a></li>
-                                <li><a href="#">5</a></li>
-                                <li>
-                                    <a href="#" aria-label="Next">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </a>
-                                </li>
-                            </ul>
-                        </nav>
+                                {# Les erreurs générales du formulaire. #}
+                                {{ form_errors(form) }}
+
+                                <div class="form-group">
+                                    {# Génération du label. #}
+                                    {{ form_label(form.nom, "Nom", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+
+                                    {# Affichage des erreurs pour ce champ précis. #}
+                                    {{ form_errors(form.nom) }}
+
+                                    <div class="col-sm-4">
+                                        {# Génération de l'input. #}
+                                        {{ form_widget(form.nom, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+
+                                {# Idem pour un autre champ. #}
+                                <div class="form-group">
+                                    {{ form_label(form.place, "Place", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    {{ form_errors(form.place) }}
+                                    <div class="col-sm-4">
+                                        {{ form_widget(form.place, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.placeLibre, "Place Libre", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    {{ form_errors(form.placeLibre) }}
+                                    <div class="col-sm-4">
+                                        {{ form_widget(form.placeLibre, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.placePrise, "Place Prise", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    {{ form_errors(form.placePrise) }}
+                                    <div class="col-sm-4">
+                                        {{ form_widget(form.placePrise, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.description, "Description", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    {{ form_errors(form.description) }}
+                                    <div class="col-sm-4">
+                                        {{ form_widget(form.description, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.adresse, "Adresse", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    {{ form_errors(form.adresse) }}
+                                    <div class="col-sm-4">
+                                        {{ form_widget(form.adresse, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.codePostal, "Code Postal", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    {{ form_errors(form.codePostal) }}
+                                    <div class="col-sm-4">
+                                        {{ form_widget(form.codePostal, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.ville, "Ville", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    {{ form_errors(form.ville) }}
+                                    <div class="col-sm-4">
+                                        {{ form_widget(form.ville, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    {{ form_label(form.coordonnees, "Coordonnées", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+                                    {{ form_errors(form.coordonnees) }}
+                                    <div class="col-sm-4">
+                                        {{ form_widget(form.coordonnees, {'attr': {'class': 'form-control'}}) }}
+                                    </div>
+                                    {# Pour le bouton, pas de label ni d'erreur, on affiche juste le widget #}
+                                    {{ form_widget(form.ajouter, {'attr': {'class': 'btn btn-primary'}}) }}
+                                </div>
+
+                                {# Génération automatique des champs pas encore écrits.
+                                   Dans cet exemple, ce serait le champ CSRF (géré automatiquement par Symfony !)
+                                   et tous les champs cachés (type « hidden »). #}
+                                {{ form_rest(form) }}
+
+                                {# Fermeture de la balise <form> du formulaire HTML #}
+                                {{ form_end(form) }}
+                            </div>
+                        </div>
+                        <table>
+                            <tbody id="tbody_parking">
+                            {% for parking in parking %}
+                                <tr>
+                                <td> <h2>{{ parking.lieu }}</h2></td>
+                                    <td>
+                                        <button type="button" class="btn btn-success voir" data-toggle="collapse" data-target="{{'#voir_detail_' ~ parking.id}}">Voir</button>
+                                        <button type="button" class="btn btn-danger supprimer" id="{{parking.id}}">Supprimer</button>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td style="padding:0;" colspan="5">
+                                        <div id="{{'voir_detail_' ~ parking.id}}" class="collapse">
+                                            <ul class="list-group">
+                                                {% for d in parking.detail %}
+                                                <li class="list-group-item"> Adresse :{{ d.adresse }}</li>
+                                                <li class="list-group-item">Place Libre :{{ d.placeLibre }}</li>
+                                                <li class="list-group-item">Place Prise :{{ d.placePrise }}</li>
+                                                <li class="list-group-item">Coordonnées :{{ d.coordonnees }}</li>
+                                            </ul>
+                                            {% endfor %}
+                                        </div>
+                                    </td>
+                                </tr>
+                            {% endfor %}
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </div>

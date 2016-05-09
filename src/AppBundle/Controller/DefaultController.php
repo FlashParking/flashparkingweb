@@ -10,9 +10,11 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
+        $user = $request->getSession()->get('user');
         // replace this example code with whatever you need
         return $this->render('@App/front/index.html.twig', array(
             'nav_active' => 'accueil',
+            'user' =>$user,
         ));
     }
 }

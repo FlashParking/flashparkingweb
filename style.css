@@ -15,6 +15,56 @@ p {
     border-bottom:1px dashed black;
 
 }
+#abc {
+    width:100%;
+    height:100%;
+    opacity:.95;
+    top:0;
+    left:0;
+    display:none;
+    position:fixed;
+    background-color:#313131;
+    overflow:auto
+}
+#offre1 {
+    float: left;
+}
+
+#offre2 {
+    float: right;
+    align: center;
+}
+
+#the-table th{
+    font-size: 20pt;
+    color: black;
+}
+
+#the-table td, #the-table tr{
+    font-size: 20pt;
+    color: rgb(220, 136, 10);
+}
+
+.button-delete {
+    color: white;
+    background-color: rgb(220, 136, 10);
+    border: none;
+    padding: 5px 5px;
+    text-align: center;
+}
+
+.button-add {
+    color: rgb(220, 136, 10);
+    background-color: black;
+    border: none;
+    padding: 5px 5px;
+    font-size: 20pt;
+    text-align: center;
+}
+tr.spaceUnder > td
+{
+    padding-bottom: 1em;
+}
 
 #pie_chart {
     float: right;
@@ -337,121 +387,7 @@ max-width: 25%;
 }
 
 .btn-gestion{
-    text-align: right;
-    background-color: rgb(25,129,154);
+text-align: right;
+background-color: rgb(25,129,154);
     border: none;
 }
-
-/* Style des onglets présents dans la page des offres*/
-.ongletDesOffres{
-    overflow: hidden;
-    border-bottom: 1px solid rgb(25,129,154);
-}
-
-.ongletDesOffres ul {
-    float: right;
-    margin-bottom: 0;
-    list-style: none;
-
-
-}
-
-.ongletDesOffres ul li{
-    float: left;
-    margin-left: 3px;
-    padding: 1em 1em 0.3em 1em;
-    background-color: rgb(25,129,154);
-    border-radius: 1em 1em 0em 0em;
-    float: left;
-    color: white;
-    font-weight: normal;
-    cursor: pointer;
-}
-
-.ongletDesOffres ul li a.active {
-
-}
-
-#offresManagerTab{
-    font-weight: bold;
-}
-
-#tarifsManager, #promotionsManager{
-    display: none;
-}
-.buttonsUpDel{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    border-bottom: 1px rgb(25,129,154) dashed;
-}
-#addTarifButton, #addPromoButton, #addOffreButton{
-    margin-top: 10px;
-}
-.hide {
-    padding: O;
-}
-
-.fa-search-custom {
-    position: relative;
-    display: table-cell;
-    width: 0px;
-    height: 0px;
-    text-align: center;
-    vertical-align: middle;
-}
-
-.table>thead>tr>th {
-    border-bottom: 0;
-}
-
-#abc {
-    width:100%;
-    height:100%;
-    opacity:.95;
-    top:0;
-    left:0;
-    display:none;
-    position:fixed;
-    background-color:#313131;
-    overflow:auto
-}
-#offre1 {
-    float: left;
-}
-
-#offre2 {
-    float: right;
-    align: center;
-}
-
-#the-table th{
-    font-size: 20pt;
-    color: black;
-}
-
-#the-table td, #the-table tr{
-    font-size: 20pt;
-    color: rgb(220, 136, 10);
-}
-
-.button-delete {
-    color: white;
-    background-color: rgb(220, 136, 10);
-    border: none;
-    padding: 5px 5px;
-    text-align: center;
-}
-
-.button-add {
-    color: rgb(220, 136, 10);
-    background-color: black;
-    border: none;
-    padding: 5px 5px;
-    font-size: 20pt;
-    text-align: center;
-}
-tr.spaceUnder > td
-{
-    padding-bottom: 1em;
-}
-
